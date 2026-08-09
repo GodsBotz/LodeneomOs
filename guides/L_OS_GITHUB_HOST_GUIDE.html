@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>L_OS · Put on iPhone / Android via GitHub Pages</title>
+<style>
+:root{--brand:#8B1E1E;--brand2:#5c1212;--gold:#c4a35a;--ink:#1c1917;--muted:#57534e;--line:#e7e5e4;--bg:#fafaf9;--ok:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f5f5f4;color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,var(--brand2),var(--brand));color:#fff;padding:1.25rem 1rem 1.5rem}
+header p{margin:0;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+header h1{margin:.35rem 0 0;font-size:1.25rem;font-weight:800}
+header .sub{margin:.4rem 0 0;font-size:.88rem;opacity:.92;font-weight:500;letter-spacing:0;text-transform:none}
+.wrap{max-width:720px;margin:0 auto;padding:1rem 1rem 3rem}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1rem;margin:1rem 0;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.step h2{margin:0 0 .5rem;font-size:1.05rem;color:var(--brand);display:flex;align-items:center;gap:.5rem}
+.num{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;border-radius:999px;background:var(--brand);color:#fff;font-size:.85rem;font-weight:800;flex-shrink:0}
+.step ol,.step ul{margin:.35rem 0 0;padding-left:1.2rem}
+.step li{margin:.35rem 0;font-size:.9rem}
+.note{font-size:.82rem;color:var(--muted);margin:.5rem 0 0;line-height:1.45}
+.tip{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:.75rem .85rem;margin:.6rem 0;font-size:.84rem;color:#065f46}
+.warn{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:.75rem .85rem;margin:.6rem 0;font-size:.84rem;color:#9a3412}
+code{background:#f5f5f4;padding:.1rem .35rem;border-radius:4px;font-size:.85em}
+.shot{display:block;width:100%;max-width:320px;margin:.75rem auto;border-radius:18px;border:8px solid #1c1917;box-shadow:0 8px 28px rgba(0,0,0,.15)}
+.shot.wide{max-width:100%;border-width:4px;border-radius:12px}
+.cap{text-align:center;font-size:.75rem;color:var(--muted);margin:.25rem 0 .75rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:.75rem 0}
+@media(max-width:560px){.pair{grid-template-columns:1fr}}
+.pair img{width:100%;border-radius:14px;border:6px solid #1c1917}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:800;padding:.7rem 1.1rem;border-radius:999px;font-size:.88rem;margin-top:.5rem}
+.footer{text-align:center;font-size:.75rem;color:var(--muted);padding:1rem}
+a{color:var(--brand);font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <p>L_OS · parent AIM-U</p>
+  <h1>Put L_OS on iPhone or Android</h1>
+  <p class="sub">Best path: GitHub Pages (free HTTPS) → open in Safari/Chrome → Add to Home Screen. No video — steps + live site pictures.</p>
+</header>
+<div class="wrap">
+
+<div class="tip"><strong>Why GitHub?</strong> Free forever, stable https:// link, easy updates. Files on the phone (Quick Look) will <em>not</em> install as a proper app.</div>
+
+<div class="step">
+  <h2><span class="num">0</span> What you need</h2>
+  <ul>
+    <li>A free <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub account</a></li>
+    <li>Your L_OS file: <code>L_OS.html</code> (the one that works on laptop)</li>
+    <li>Phone with Safari (iPhone) or Chrome (Android)</li>
+  </ul>
+  <div class="tip"><strong>Visibility:</strong> For free GitHub Pages on a personal account, the repo must be <strong>Public</strong>. That means anyone with the link can open the app shell (your house data still lives in each device’s browser storage, not in the GitHub files). Use a hard-to-guess repo name if you want obscurity. Private repo + free Pages needs GitHub Pro — not required for house use.</div>
+  <img class="shot wide" src="11-desktop-today.png" alt="L_OS Today on desktop"/>
+  <p class="cap">Your laptop already shows Today — same app will open on the phone after hosting.</p>
+</div>
+
+<div class="step">
+  <h2><span class="num">1</span> Create a GitHub repository</h2>
+  <ol>
+    <li>Go to <a href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a></li>
+    <li><strong>Repository name:</strong> e.g. <code>los-app</code> (any short name)</li>
+    <li>Set visibility to <strong>Public</strong> (needed for free Pages). Private only if you pay for GitHub Pro + Pages on private repos.</li>
+    <li>Leave “Add a README” unchecked if you want a clean drop — or checked is fine</li>
+    <li>Click <strong>Create repository</strong></li>
+  </ol>
+</div>
+
+<div class="step">
+  <h2><span class="num">2</span> Upload L_OS as <code>index.html</code></h2>
+  <ol>
+    <li>On the empty repo page, click <strong>uploading an existing file</strong> (or Add file → Upload files)</li>
+    <li>On your computer, <strong>rename a copy</strong> of <code>L_OS.html</code> to <code>index.html</code>
+      <div class="note">Naming it <code>index.html</code> means the site root opens the app without typing a long filename.</div>
+    </li>
+    <li>Drag <code>index.html</code> into the GitHub upload box</li>
+    <li>Scroll down → <strong>Commit changes</strong></li>
+  </ol>
+  <div class="warn">If you keep the name <code>L_OS.html</code>, your URL will be <code>https://YOU.github.io/los-app/L_OS.html</code> — still works, just longer.</div>
+</div>
+
+<div class="step">
+  <h2><span class="num">3</span> Turn on GitHub Pages</h2>
+  <ol>
+    <li>In the repo, open <strong>Settings</strong></li>
+    <li>Left sidebar → <strong>Pages</strong></li>
+    <li>Under <strong>Build and deployment → Source</strong>, choose <strong>Deploy from a branch</strong></li>
+    <li>Branch: <strong>main</strong> (or <strong>master</strong>) · folder: <strong>/ (root)</strong></li>
+    <li>Click <strong>Save</strong></li>
+    <li>Wait 30–90 seconds, then refresh. GitHub shows a green box with your site URL like:<br/>
+      <code>https://YOURNAME.github.io/los-app/</code>
+    </li>
+  </ol>
+  <div class="tip">Open that URL on your laptop first. You should see the same L_OS splash / Today as below.</div>
+  <div class="pair">
+    <div>
+      <img src="00-splash.png" alt="Splash"/>
+      <p class="cap">Splash · Enter workspace</p>
+    </div>
+    <div>
+      <img src="04-today.png" alt="Today"/>
+      <p class="cap">Today after setup</p>
+    </div>
+  </div>
+</div>
+
+<div class="step">
+  <h2><span class="num">4</span> iPhone · Safari · Home Screen</h2>
+  <ol>
+    <li>On the iPhone, open the <strong>https://…github.io…</strong> link in <strong>Safari</strong> (not Chrome, not Files)</li>
+    <li>Complete Step 1–3 if first run (same as laptop)</li>
+    <li>Tap the <strong>Share</strong> button (square with ↑)</li>
+    <li>Scroll and tap <strong>Add to Home Screen</strong></li>
+    <li>Name it <strong>L_OS</strong> → tap <strong>Add</strong></li>
+  </ol>
+  <div class="pair">
+    <div>
+      <img src="01-step1-aimu.png" alt="Step 1"/>
+      <p class="cap">First run · What is AIM-U?</p>
+    </div>
+    <div>
+      <img src="02-step2-seat.png" alt="Step 2"/>
+      <p class="cap">Pick your seat</p>
+    </div>
+  </div>
+  <div class="warn"><strong>If you only see a grey document preview:</strong> you opened the file from Files. Use the GitHub https link in Safari instead.</div>
+</div>
+
+<div class="step">
+  <h2><span class="num">5</span> Android · Chrome · Home Screen</h2>
+  <ol>
+    <li>Open the same <strong>https://…github.io…</strong> link in <strong>Chrome</strong></li>
+    <li>Tap menu <strong>⋮</strong> → <strong>Install app</strong> or <strong>Add to Home screen</strong></li>
+    <li>Confirm. Open the icon like any app.</li>
+  </ol>
+</div>
+
+<div class="step">
+  <h2><span class="num">6</span> Confirm it works on the phone</h2>
+  <p class="note">You should be able to move through the main surfaces:</p>
+  <div class="pair">
+    <div>
+      <img src="05-work.png" alt="Work"/>
+      <p class="cap">Work hub</p>
+    </div>
+    <div>
+      <img src="06-calendar.png" alt="Calendar"/>
+      <p class="cap">Calendar</p>
+    </div>
+  </div>
+  <div class="pair">
+    <div>
+      <img src="07-tracker.png" alt="Tracker"/>
+      <p class="cap">Tracker</p>
+    </div>
+    <div>
+      <img src="08-eod.png" alt="EOD"/>
+      <p class="cap">EOD briefing</p>
+    </div>
+  </div>
+  <ul>
+    <li>Footer tabs respond</li>
+    <li>Data you add stays after you close and reopen the Home Screen icon</li>
+    <li>Help → picture guides (no video required)</li>
+  </ul>
+</div>
+
+<div class="step">
+  <h2><span class="num">7</span> Update later</h2>
+  <ol>
+    <li>Repo → Add file → Upload files</li>
+    <li>Upload the new <code>index.html</code> (replaces the old)</li>
+    <li>Commit → wait ~1 minute → refresh phone (or pull-to-refresh)</li>
+  </ol>
+</div>
+
+<div class="tip">
+  <strong>Next after host is live:</strong> Phase-2 (email bridge, weekly pulse, real stakeholder link). Multi-device sync of the same data is later — each device keeps its own local storage until then.
+</div>
+
+<p style="text-align:center;margin:1.5rem 0">
+  <a class="btn" href="L_OS_LEARN_THE_HOUSE.html">Learn the house · picture steps →</a>
+</p>
+</div>
+<p class="footer">L_OS · GitHub Pages host guide · no video · site pictures from current build</p>
+</body>
+</html>
