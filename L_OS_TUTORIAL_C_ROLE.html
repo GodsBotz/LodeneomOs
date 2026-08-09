@@ -3,59 +3,149 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="theme-color" content="#5c1212"/>
-<title>L_OS · C · Role seat training</title>
+<title>L_OS · Role Path</title>
 <style>
-:root{--brand:#8B1E1E;--gold:#c4a35a}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#fafaf9;color:#1c1917;min-height:100dvh}
-.top{background:linear-gradient(135deg,#5c1212,#8B1E1E);color:#fff8f6;padding:1rem 1rem 1.15rem}
-.top a{color:#c4a35a;font-weight:700;font-size:.8rem;text-decoration:none}
-.top h1{margin:.35rem 0 0;font-size:1.2rem}
-.top p{margin:.3rem 0 0;font-size:.8rem;opacity:.9}
-.wrap{max-width:420px;margin:0 auto;padding:1rem 1rem 2.5rem}
-.player{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:.85rem;margin-bottom:1rem}
-.player strong{display:block;font-size:.85rem;color:var(--brand);margin-bottom:.4rem}
-.player button{border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;background:var(--brand);color:#fff;cursor:pointer;width:100%}
-.player .st{font-size:.72rem;color:#57534e;margin:.4rem 0 0}
-.step{display:flex;gap:.65rem;background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:.75rem;margin:.4rem 0;font-size:.86rem;line-height:1.4}
-.step .n{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center}
-.nav{display:flex;gap:.5rem;margin-top:1.25rem}
-.nav a{flex:1;text-align:center;padding:.7rem;border-radius:999px;font-weight:800;font-size:.82rem;text-decoration:none}
-.nav .ghost{border:1.5px solid var(--brand);color:var(--brand)}
-.nav .brand{background:var(--brand);color:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;background:#5c1212;color:#fff8f6;min-height:100dvh;padding:1rem}
+.wrap{max-width:430px;margin:0 auto}
+.eyebrow{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#c4a35a;font-weight:700}
+h1{font-size:1.25rem;margin:.3rem 0 .5rem}
+.lead{font-size:.88rem;opacity:.9;line-height:1.45;margin-bottom:1rem}
+.paths{display:grid;gap:.65rem}
+.path{background:#fafaf9;color:#1c1917;border-radius:16px;padding:1rem;border:2px solid transparent;cursor:pointer;text-align:left}
+.path:hover,.path.on{border-color:#c4a35a}
+.path h2{font-size:1rem;color:#8B1E1E;margin-bottom:.3rem}
+.path p{font-size:.8rem;color:#57534e;line-height:1.4}
+.tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.55rem}
+.tag{font-size:.6rem;font-weight:800;text-transform:uppercase;background:#f5f5f4;padding:.2rem .45rem;border-radius:999px;color:#57534e}
+button.start{display:block;width:100%;margin-top:1rem;border:none;border-radius:14px;padding:.9rem;font-weight:800;background:#c4a35a;color:#1c1917;cursor:pointer;font-size:.95rem}
+button.start:disabled{opacity:.4;cursor:not-allowed}
+a.back{display:block;text-align:center;margin-top:.7rem;color:#c4a35a;font-weight:700;font-size:.84rem;text-decoration:none}
+/* player */
+#player{display:none}
+.phone{background:#fafaf9;color:#1c1917;border-radius:20px;overflow:hidden;border:2px solid #292524;min-height:380px;position:relative;margin:.5rem 0}
+.status{height:24px;display:flex;justify-content:space-between;padding:0 .7rem;align-items:center;font-size:.58rem;font-weight:700;opacity:.65}
+.body{padding:.7rem .8rem 2.8rem}
+.nav{position:absolute;left:0;right:0;bottom:0;height:48px;background:#fff;border-top:1px solid #e7e5e4;display:flex;justify-content:space-around;align-items:center;font-size:.54rem;font-weight:700;color:#78716c}
+.nav .on{color:#8B1E1E}
+.hero{background:linear-gradient(135deg,#fff8f6,#fafaf9);border:1px solid #f5d0c8;border-radius:12px;padding:.55rem;margin:.3rem 0}
+.hero strong{color:#8B1E1E;display:block}
+.card{border:1px solid #e7e5e4;border-radius:12px;padding:.5rem;margin:.28rem 0;font-size:.78rem}
+.card span{display:block;font-size:.66rem;color:#57534e}
+.hl{outline:2.5px solid #c4a35a;box-shadow:0 0 0 6px rgba(196,163,90,.18);border-radius:12px}
+.cap{font-size:.78rem;opacity:.9;line-height:1.4;margin:.4rem 0 .6rem}
+.row{display:flex;gap:.4rem;margin-top:.6rem}
+.row button{flex:1;border:none;border-radius:12px;padding:.75rem;font-weight:800;cursor:pointer}
+.row .n{background:#c4a35a;color:#1c1917}
+.row .b{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.row .a{background:#fff;color:#5c1212;flex:0 0 auto;padding:.75rem .9rem}
 </style>
 </head>
 <body>
-<div class="top">
-  <a href="L_OS_TUTORIAL_HUB.html">← Hub</a>
-  <h1>C · Role seat training</h1>
-  <p>~15 min · voice lesson · do each step in L_OS</p>
-</div>
-<div class="wrap">
-  <div class="player">
-    <strong>Voice guide</strong>
-    <button type="button" id="play">Play lesson</button>
-    <p class="st" id="st">Status: ready — tap Play</p>
+<div class="wrap" id="pick">
+  <p class="eyebrow">Option C · Role Path</p>
+  <h1>Train for your seat</h1>
+  <p class="lead">Pick a track. Tip and benefit sit above the phone frame (same as Guided Practice). Real voice · only the flows that seat needs.</p>
+  <div class="paths">
+    <button type="button" class="path" data-path="ceo">
+      <h2>CEO path</h2>
+      <p>Run seals, All-seats calendar, assign & notify, 24h feedback justice, stakeholders digest — strength on excellence, not memory.</p>
+      <div class="tags"><span class="tag">Seal</span><span class="tag">All seats</span><span class="tag">Justice</span></div>
+    </button>
+    <button type="button" class="path" data-path="leader">
+      <h2>Leader path (COO / EA / HR)</h2>
+      <p>Draft feedback with SOP cites, assign calendars, extract meetings, read Register, confirm Chat proposals — move work without inventing governance.</p>
+      <div class="tags"><span class="tag">Assign</span><span class="tag">Draft</span><span class="tag">Extract</span></div>
+    </button>
+    <button type="button" class="path" data-path="staff">
+      <h2>Staff path</h2>
+      <p>Full staff day: primary next, own calendar (accept assigns), EOD with tomorrow plan, need-to-know Register — operate without inventing process.</p>
+      <div class="tags"><span class="tag">Today</span><span class="tag">EOD</span><span class="tag">Standards</span></div>
+    </button>
   </div>
-  <div class="step"><span class="n">1</span><div><strong>CEO/COO</strong> — switch seat → inspect another calendar.</div></div><div class="step"><span class="n">2</span><div><strong>House Register</strong> — sealed docs only.</div></div><div class="step"><span class="n">3</span><div><strong>Walk must / must-not</strong> for your Role Pack.</div></div><div class="step"><span class="n">4</span><div><strong>Return to your real seat</strong> before filing EOD.</div></div>
-  <div class="nav">
-    <a class="ghost" href="L_OS_TUTORIAL_HUB.html">All paths</a>
-    <a class="brand" href="index.html">Open L_OS</a>
-  </div>
+  <button type="button" class="start" id="go" disabled>Start path with audio</button>
+  <a class="back" href="/L_OS_TUTORIAL_HUB.html">← All options</a>
 </div>
+
+<div class="wrap" id="player">
+  <p class="eyebrow" id="pathLab">Path</p>
+  <h1 id="stepTitle">Step</h1>
+  <p class="cap" id="cap"></p>
+  <div class="phone" id="phone"></div>
+  <div class="row">
+    <button type="button" class="b" id="prev">Back</button>
+    <button type="button" class="a" id="replay">🔊</button>
+    <button type="button" class="n" id="next">Next</button>
+  </div>
+  <a class="back" href="/L_OS_TUTORIAL_C_ROLE.html">Change path</a>
+</div>
+<script src="/tutorial/player.js"></script>
 <script>
 (function(){
-  var a=null;
-  document.getElementById('play').onclick=function(){
-    try{ if(a) a.pause(); }catch(e){}
-    a=new Audio('tutorial/audio/c_role.mp3');
-    var st=document.getElementById('st');
-    st.textContent='Status: loading…';
-    a.play().then(function(){ st.textContent='Status: playing'; })
-      .catch(function(){ st.textContent='Status: blocked — tap again'; });
+  var paths={
+    ceo:[
+      {t:'CEO · All seats calendar', a:'/tutorial/audio/ceo.mp3', c:'You can view any seat and assign work. Assignees get Inbox notify.',
+        h:'<div class="status"><span>9:41</span><span>Calendar</span></div><div class="body"><div class="hero hl"><strong>Viewing · All seats</strong><span>CEO · COO · EA · HR chips</span></div><div class="card"><strong>Assign to SalesAssistant</strong><span>They were notified</span></div><div class="card"><strong>Nudge EA</strong><span>From any foreign item</span></div></div><div class="nav"><span>Today</span><span>Work</span><span class="on">Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'CEO · Seal the Register', a:'/tutorial/audio/s4.mp3', c:'Only CEO seals. Import ZIP → propose → confirm. Older versions stay reference-only.',
+        h:'<div class="status"><span>9:41</span><span>Register</span></div><div class="body"><h2 style="margin:0 0 .4rem;font-size:1.05rem">House Register</h2><div class="card hl"><strong>Seal on confirm</strong><span>Draft is safer default</span></div><div class="card"><strong>Hard-delete</strong><span>CEO only · archive preferred</span></div></div><div class="nav"><span>Today</span><span class="on">Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'CEO · Justice seal', a:'/tutorial/audio/s6.mp3', c:'Feedback 24h. COO drafts with ≥2 SOP cites. You seal. Clocks keep the house honest.',
+        h:'<div class="status"><span>9:41</span><span>Feedback</span></div><div class="body"><div class="hero hl"><strong>Seal feedback</strong><span>≥2 SOP cites · dual-confirm material change</span></div><div class="card"><strong>Open 1 · 18h</strong><span>COO draft ready</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'CEO · Ready', a:'/tutorial/audio/s8.mp3', c:'You run seals, calendars, and justice. Open L_OS as CEO and work.',
+        h:'<div class="status"><span>9:41</span><span>Today</span></div><div class="body"><div class="hero"><strong>Enter as CEO</strong><span>Strength on excellence — not remembering</span></div><div class="card"><strong>Next</strong><span>Open L_OS → switch seat CEO</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'}
+    ],
+    leader:[
+      {t:'Leader · Assign calendars', a:'/tutorial/audio/s3.mp3', c:'COO / EA / HR can add to staff calendars. Always notify the seat.',
+        h:'<div class="status"><span>9:41</span><span>Calendar</span></div><div class="body"><div class="hero hl"><strong>Add to calendar · owner EA</strong><span>They were notified</span></div><div class="card"><strong>Nudge</strong><span>When an item is owned by another seat</span></div></div><div class="nav"><span>Today</span><span>Work</span><span class="on">Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'Leader · Feedback draft', a:'/tutorial/audio/s6.mp3', c:'You draft resolutions with ≥2 SOP cites. CEO seals. 24h clock.',
+        h:'<div class="status"><span>9:41</span><span>Feedback</span></div><div class="body"><div class="card hl"><strong>Write draft</strong><span>Cite SOP-FB-24 · SOP-CULT-1</span></div><div class="card"><strong>Await CEO seal</strong><span>Status · draft</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'Leader · Extract & Chat', a:'/tutorial/audio/s5.mp3', c:'Extract meetings into owners. Chat is Register-grounded — you confirm & distribute.',
+        h:'<div class="status"><span>9:41</span><span>Work</span></div><div class="body"><div class="card hl"><strong>Extract & distribute</strong><span>Meeting → owners → to-dos</span></div><div class="card"><strong>Chat job ready</strong><span>Never seals</span></div></div><div class="nav"><span>Today</span><span class="on">Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'},
+      {t:'Leader · Ready', a:'/tutorial/audio/s8.mp3', c:'You move work without inventing governance. Enter L_OS.',
+        h:'<div class="status"><span>9:41</span><span>Today</span></div><div class="body"><div class="hero"><strong>Enter as leader</strong><span>Assign · draft · extract · confirm</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>'}
+    ],
+    staff:[
+      {t:'Staff · Today', a:'/tutorial/audio/s1.mp3', c:'One primary next on the burgundy card — your stress line. Calendar peek, sealed clocks, full to-do list with nudge. Everything you own for the day in one place so excellence is not memory work.',
+        h:'<div class="status"><span>9:41</span><span>Today</span></div><div class="body"><div class="hero hl"><strong>Next · Standards check</strong><span>Proof before you act — protects you</span></div><div class="card"><strong>Your full to-do list</strong><span>1. Stand-up prep · 09:00<br/>2. Client reply · dual-confirm if needed<br/>3. File EOD · 16:30<br/>4. Accept calendar assign from EA<br/>5. Read SOP you need</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Tracker</span><span>Help</span></div>'},
+      {t:'Staff · Own calendar', a:'/tutorial/audio/s3.mp3', c:'You add only to your calendar so density stays honest. Accept assigns from leaders — they notify Inbox. Nudges pull you back to what matters without shame theatre.',
+        h:'<div class="status"><span>9:41</span><span>Calendar</span></div><div class="body"><div class="hero hl"><strong>My calendar only</strong><span>Staff add own · leaders may assign</span></div><div class="card"><strong>What lands here</strong><span>• Your adds<br/>• Leader assigns + Inbox notify<br/>• EOD tomorrow lines<br/>• Nudges when something stalls</span></div></div><div class="nav"><span>Today</span><span>Work</span><span class="on">Calendar</span><span>Tracker</span><span>Help</span></div>'},
+      {t:'Staff · EOD + Register read', a:'/tutorial/audio/staff.mp3', c:'File EOD every working day — wins, blockers, concrete tomorrow. Read sealed law you need from Register. Never invent process; cite or escalate.',
+        h:'<div class="status"><span>9:41</span><span>EOD</span></div><div class="body"><div class="card hl"><strong>File EOD table</strong><span>Wins · blockers · tomorrow → calendar</span></div><div class="card"><strong>Your daily motion</strong><span>1. File EOD<br/>2. Read sealed SOP if unsure<br/>3. Standards check before high-stakes send<br/>4. Escalate with evidence if blocked<br/>5. Never invent policy</span></div></div><div class="nav"><span>Today</span><span>Work</span><span>Calendar</span><span>Tracker</span><span class="on">Help</span></div>'},
+      {t:'Staff · Ready', a:'/tutorial/audio/s8.mp3', c:'You are ready to operate without heroics. Open L_OS — strength on excellence, not remembering.',
+        h:'<div class="status"><span>9:41</span><span>Today</span></div><div class="body"><div class="hero"><strong>Enter as staff</strong><span>Excellence without remembering</span></div><div class="card"><strong>You can always</strong><span>Re-open tutorials in Help · switch layout on Today · nudge owners on to-dos</span></div></div><div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Tracker</span><span>Help</span></div>'}
+    ]
   };
+  var path=null, i=0, steps=[];
+  document.querySelectorAll('.path').forEach(function(b){
+    b.onclick=function(){
+      document.querySelectorAll('.path').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      path=b.getAttribute('data-path');
+      document.getElementById('go').disabled=false;
+    };
+  });
+  document.getElementById('go').onclick=function(){
+    if(!path) return;
+    steps=paths[path]; i=0;
+    document.getElementById('pick').style.display='none';
+    document.getElementById('player').style.display='block';
+    document.getElementById('pathLab').textContent='Option C · '+path.toUpperCase();
+    render();
+  };
+  function render(){
+    var s=steps[i];
+    document.getElementById('stepTitle').textContent=s.t;
+    document.getElementById('cap').textContent=s.c;
+    document.getElementById('phone').innerHTML=s.h;
+    document.getElementById('next').textContent=i===steps.length-1?'Finish · open L_OS':'Next';
+    LosPlayer.play(s.a);
+  }
+  document.getElementById('next').onclick=function(){
+    if(i>=steps.length-1){ location.href='/L_OS.html'; return; }
+    i++; render();
+  };
+  document.getElementById('prev').onclick=function(){ if(i>0){ i--; render(); } };
+  document.getElementById('replay').onclick=function(){ LosPlayer.play(steps[i].a); };
 })();
 </script>
 </body>

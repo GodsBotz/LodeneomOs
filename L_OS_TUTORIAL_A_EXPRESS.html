@@ -3,58 +3,201 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="theme-color" content="#5c1212"/>
-<title>L_OS · A · Express</title>
+<title>L_OS · Express tour</title>
 <style>
-:root{--brand:#8B1E1E;--gold:#c4a35a}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#fafaf9;color:#1c1917;min-height:100dvh}
-.top{background:linear-gradient(135deg,#5c1212,#8B1E1E);color:#fff8f6;padding:1rem 1rem 1.15rem}
-.top a{color:#c4a35a;font-weight:700;font-size:.8rem;text-decoration:none}
-.top h1{margin:.35rem 0 0;font-size:1.2rem}
-.top p{margin:.3rem 0 0;font-size:.8rem;opacity:.9}
-.wrap{max-width:420px;margin:0 auto;padding:1rem 1rem 2.5rem}
-.player{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:.85rem;margin-bottom:1rem}
-.player strong{display:block;font-size:.85rem;color:var(--brand);margin-bottom:.4rem}
-.player button{border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;background:var(--brand);color:#fff;cursor:pointer;width:100%}
-.player .st{font-size:.72rem;color:#57534e;margin:.4rem 0 0}
-.step{display:flex;gap:.65rem;background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:.75rem;margin:.4rem 0;font-size:.86rem;line-height:1.4}
-.step .n{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center}
-.nav{display:flex;gap:.5rem;margin-top:1.25rem}
-.nav a{flex:1;text-align:center;padding:.7rem;border-radius:999px;font-weight:800;font-size:.82rem;text-decoration:none}
-.nav .ghost{border:1.5px solid var(--brand);color:var(--brand)}
-.nav .brand{background:var(--brand);color:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;background:#5c1212;color:#fff8f6;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.6rem}
+.stage{width:100%;max-width:390px;aspect-ratio:9/19.5;background:#0c0a09;border-radius:32px;overflow:hidden;position:relative;border:3px solid #292524;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.slide{position:absolute;inset:0;opacity:0;transform:scale(.98);transition:opacity .35s,transform .35s;pointer-events:none;display:flex;flex-direction:column}
+.slide.on{opacity:1;transform:none;pointer-events:auto}
+.phone{flex:1;display:flex;flex-direction:column;background:#fafaf9;color:#1c1917;position:relative;overflow:hidden}
+.phone.dark{background:#5c1212;color:#fff8f6}
+.status{height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 .85rem;font-size:.6rem;font-weight:700;opacity:.7}
+.body{flex:1;padding:.55rem .8rem 3rem;overflow:hidden;position:relative}
+.nav{position:absolute;left:0;right:0;bottom:0;height:50px;background:#fff;border-top:1px solid #e7e5e4;display:flex;align-items:center;justify-content:space-around;font-size:.55rem;font-weight:700;color:#78716c}
+.nav .on{color:#8B1E1E}
+.eyebrow{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#78716c;margin-bottom:.15rem}
+h2{font-size:1.1rem;margin:0 0 .4rem}
+.card{background:#fff;border:1px solid #e7e5e4;border-radius:12px;padding:.5rem .6rem;margin:.28rem 0;font-size:.74rem}
+.card strong{display:block;font-size:.82rem}
+.card span{color:#57534e;font-size:.68rem}
+.hero{background:linear-gradient(135deg,#fff8f6,#fafaf9);border:1px solid #f5d0c8;border-radius:12px;padding:.6rem .65rem;margin:.3rem 0}
+.hero strong{color:#8B1E1E;font-size:.88rem;display:block}
+.hero span{font-size:.7rem;color:#57534e}
+.chips{display:flex;flex-wrap:wrap;gap:.22rem;margin:.25rem 0}
+.chip{background:#f5f5f4;border-radius:999px;padding:.15rem .45rem;font-size:.62rem;font-weight:700}
+.chip.on{background:#8B1E1E;color:#fff}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:.3rem 0}
+.cal i{aspect-ratio:1;background:#f5f5f4;border-radius:7px;font-style:normal;font-size:.58rem;display:flex;align-items:center;justify-content:center;font-weight:650}
+.cal i.hot{background:#ecfdf5;color:#0f766e;box-shadow:inset 0 0 0 1.5px #5eead4}
+.btn{display:block;text-align:center;background:#8B1E1E;color:#fff;border-radius:11px;padding:.65rem;font-weight:700;font-size:.84rem;margin-top:.4rem}
+.fab{position:absolute;right:10px;bottom:58px;background:#1c1917;color:#c4a35a;border:1px solid #c4a35a;border-radius:999px;padding:.4rem .65rem;font-size:.64rem;font-weight:800}
+.cap{position:absolute;left:0;right:0;top:0;z-index:5;padding:.5rem .7rem;background:linear-gradient(180deg,rgba(28,25,23,.94),rgba(28,25,23,.5),transparent);color:#fff;pointer-events:none}
+.cap .n{display:inline-block;background:#8B1E1E;border-radius:999px;padding:.1rem .4rem;font-size:.62rem;font-weight:800;margin-bottom:.15rem}
+.cap h1{font-size:.9rem;line-height:1.2}
+.cap p{font-size:.68rem;opacity:.9;margin-top:.1rem}
+.hl{position:absolute;z-index:4;border:2.5px solid #c4a35a;border-radius:12px;box-shadow:0 0 0 9999px rgba(12,10,9,.52),0 0 22px rgba(196,163,90,.4);pointer-events:none;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 9999px rgba(12,10,9,.52),0 0 16px rgba(196,163,90,.3)}50%{box-shadow:0 0 0 9999px rgba(12,10,9,.45),0 0 26px rgba(196,163,90,.5)}}
+.bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.12);z-index:6}
+.bar>i{display:block;height:100%;width:0;background:#c4a35a;transition:width .15s linear}
+.controls{margin-top:.7rem;display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;max-width:390px;width:100%}
+button{border:none;border-radius:12px;padding:.6rem .9rem;font-weight:700;cursor:pointer;background:#fff;color:#5c1212;font-size:.82rem}
+button.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+button.gold{background:#c4a35a;color:#1c1917}
+.hint{font-size:.66rem;opacity:.75;margin-top:.4rem;text-align:center;max-width:360px;line-height:1.35}
+.gate{position:absolute;inset:0;z-index:20;background:rgba(28,25,23,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center}
+.gate h3{font-size:1.1rem;margin-bottom:.4rem}
+.gate p{font-size:.8rem;opacity:.85;margin-bottom:1rem;line-height:1.4}
+.gate button{background:#c4a35a;color:#1c1917;padding:.85rem 1.4rem;font-size:.95rem}
 </style>
 </head>
 <body>
-<div class="top">
-  <a href="L_OS_TUTORIAL_HUB.html">← Hub</a>
-  <h1>A · Express</h1>
-  <p>~8 min · voice lesson · do each step in L_OS</p>
-</div>
-<div class="wrap">
-  <div class="player">
-    <strong>Voice guide</strong>
-    <button type="button" id="play">Play lesson</button>
-    <p class="st" id="st">Status: ready — tap Play</p>
+<div class="stage" id="stage">
+  <div class="gate" id="gate">
+    <h3>Express tour · with voice</h3>
+    <p>Tap once to unlock audio, then the full-screen tour plays automatically.</p>
+    <button type="button" id="startBtn">▶ Start with audio</button>
   </div>
-  <div class="step"><span class="n">1</span><div><strong>Open Today</strong> — read the burgundy next action.</div></div><div class="step"><span class="n">2</span><div><strong>Add one to-do</strong> you own today.</div></div><div class="step"><span class="n">3</span><div><strong>File EOD</strong> with one concrete tomorrow line.</div></div><div class="step"><span class="n">4</span><div><strong>Confirm Calendar</strong> — landed on next working day.</div></div>
-  <div class="nav">
-    <a class="ghost" href="L_OS_TUTORIAL_HUB.html">All paths</a>
-    <a class="brand" href="index.html">Open L_OS</a>
+  <div class="slide" data-audio="/tutorial/audio/intro.mp3">
+    <div class="cap"><span class="n">Tour</span><h1>Full-screen L_OS</h1><p>See the real house — one primary next protects focus</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>L_OS</span></div>
+      <div class="body" style="padding-top:2.2rem"><p class="eyebrow">You own · EA</p><h2>Today</h2>
+        <div class="hero"><strong>Next · File EOD</strong><span>One stress line · one primary action</span></div>
+        <div class="card"><strong>On your calendar</strong><span>Team stand-up · 09:00</span></div>
+        <div class="card"><strong>Full day list</strong><span>Stand-up · Standards · Client · EOD · Feedback chase</span></div>
+        <div class="card"><strong>Routines</strong><span>Escalate · Feedback 24h · Standards · Extract · EOD</span></div>
+      </div>
+      <div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:72px;height:68px"></div>
+    </div>
   </div>
+  <div class="slide" data-audio="/tutorial/audio/s1.mp3">
+    <div class="cap"><span class="n">1</span><h1>Today</h1><p>Burgundy card = stress line · full day list · clocks</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>Today</span></div>
+      <div class="body" style="padding-top:2.2rem"><p class="eyebrow">You own · CEO</p><h2>Today</h2>
+        <div class="hero"><strong>Next · 1 tap</strong><span>Standards check before you act</span></div>
+        <div class="card"><strong>Your to-dos</strong><span>Toast · 10 Aug · 13:20</span></div>
+        <div class="card"><strong>Impact</strong><span>Done 2 · Open 1 · Standards OK</span></div>
+      </div>
+      <div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:72px;height:66px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s2.mp3">
+    <div class="cap"><span class="n">2</span><h1>Switch seat</h1><p>Leaders inspect without a second truth</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>Today</span></div>
+      <div class="body" style="padding-top:2.2rem"><p class="eyebrow">You own</p><h2>Switch role / seat</h2>
+        <div class="chips"><span class="chip on">CEO</span><span class="chip">EA</span><span class="chip">COO</span><span class="chip">HR</span></div>
+        <div class="card"><strong>View follows seat</strong><span>Staff see own · leaders see All seats</span></div>
+      </div>
+      <div class="nav"><span class="on">Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:92px;height:48px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s3.mp3">
+    <div class="cap"><span class="n">3–4</span><h1>Calendar</h1><p>Density · assign · notify · nudge · EOD lands here</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>Calendar</span></div>
+      <div class="body" style="padding-top:2.2rem">
+        <div class="chips"><span class="chip on">Month</span><span class="chip">Week</span><span class="chip">Day</span></div>
+        <div class="cal"><i>3</i><i>4</i><i class="hot">5</i><i>6</i><i>7</i><i>8</i><i class="hot">9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i></div>
+        <div class="card"><strong>Toast · 13:20 · CEO</strong><span>Mark done · View · Nudge</span></div>
+      </div>
+      <div class="nav"><span>Today</span><span>Work</span><span class="on">Calendar</span><span>Chat</span><span>Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:110px;height:84px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s4.mp3">
+    <div class="cap"><span class="n">5–6</span><h1>House Register</h1><p>Current sealed only · Chat grounds here · never invent</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>Register</span></div>
+      <div class="body" style="padding-top:2.2rem"><h2>House Register</h2>
+        <div class="card"><strong>SOP-FB-24</strong><span>SEALED · current · Feedback justice</span></div>
+        <div class="card"><strong>Role Pack · EA</strong><span>SEALED · current</span></div>
+        <div class="btn">Full screen reader</div>
+      </div>
+      <div class="nav"><span>Today</span><span class="on">Work</span><span>Calendar</span><span>Chat</span><span>Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:68px;height:96px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s5.mp3">
+    <div class="cap"><span class="n">7</span><h1>Chat</h1><p>Recommend only · you confirm & distribute · never seals</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>Chat</span></div>
+      <div class="body" style="padding-top:2.2rem"><h2>Lodeneom Chat</h2>
+        <div class="hero"><strong>Register-grounded</strong><span>Async jobs · Confirm & distribute is yours</span></div>
+        <div class="card"><strong>Job ready</strong><span>Extract · cite SOPs · never seals</span></div>
+      </div>
+      <div class="nav"><span>Today</span><span>Work</span><span>Calendar</span><span class="on">Chat</span><span>Help</span></div>
+      <div class="fab">Lodeneom Chat</div>
+      <div class="hl" style="left:12px;right:12px;top:68px;height:74px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s6.mp3">
+    <div class="cap"><span class="n">8–9</span><h1>EOD & Feedback</h1><p>Tomorrow → calendar · 24h feedback justice</p></div>
+    <div class="phone"><div class="status"><span>9:41</span><span>EOD</span></div>
+      <div class="body" style="padding-top:2.2rem"><h2>EOD briefing</h2>
+        <div class="card"><strong>Wins · blockers · tomorrow</strong><span>Tomorrow → Calendar next working day</span></div>
+        <div class="card"><strong>Feedback 24h</strong><span>COO draft · ≥2 SOP · CEO seal</span></div>
+        <div class="btn">File EOD table</div>
+      </div>
+      <div class="nav"><span>Today</span><span>Work</span><span>Calendar</span><span>Chat</span><span class="on">Help</span></div>
+      <div class="hl" style="left:12px;right:12px;top:68px;height:104px"></div>
+    </div>
+  </div>
+  <div class="slide" data-audio="/tutorial/audio/s8.mp3">
+    <div class="cap"><span class="n">Ready</span><h1>Enter as an operator</h1><p>Open the app · work</p></div>
+    <div class="phone dark"><div class="status"><span>9:41</span><span>L_OS</span></div>
+      <div class="body" style="padding-top:3rem;text-align:center">
+        <p class="eyebrow" style="color:rgba(255,255,255,.7)">LODENEOM</p>
+        <h2 style="font-size:1.25rem;margin:1rem 0;color:#fff">Lodeneom Operating System</h2>
+        <p style="opacity:.85;font-size:.8rem;margin-bottom:1.2rem">Your Workplace Operating System</p>
+        <div class="btn" style="background:#fff;color:#5c1212">Enter workspace</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"><i id="prog"></i></div>
 </div>
+<div class="controls">
+  <button type="button" class="ghost" id="restart">Replay</button>
+  <button type="button" id="pause">Pause</button>
+  <a href="/L_OS_TUTORIAL_HUB.html" style="color:#c4a35a;font-weight:700;font-size:.82rem;align-self:center;text-decoration:none">All options</a>
+</div>
+<p class="hint">Option A · Real voice files · gold highlight on the lesson · full phone frame</p>
+<script src="/tutorial/player.js"></script>
 <script>
 (function(){
-  var a=null;
-  document.getElementById('play').onclick=function(){
-    try{ if(a) a.pause(); }catch(e){}
-    a=new Audio('tutorial/audio/a_express.mp3');
-    var st=document.getElementById('st');
-    st.textContent='Status: loading…';
-    a.play().then(function(){ st.textContent='Status: playing'; })
-      .catch(function(){ st.textContent='Status: blocked — tap again'; });
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=-1, paused=false, timer=null, started=false;
+  var prog=document.getElementById('prog');
+  function show(n){
+    i=n;
+    slides.forEach(function(s,idx){ s.classList.toggle('on', idx===i); });
+    prog.style.width=((i+1)/slides.length*100)+'%';
+    var src=slides[i].getAttribute('data-audio');
+    LosPlayer.stop();
+    if(!paused && src){
+      LosPlayer.play(src, function(){
+        if(paused) return;
+        if(i<slides.length-1) show(i+1);
+      });
+    }
+  }
+  function start(){
+    document.getElementById('gate').style.display='none';
+    started=true; paused=false;
+    document.getElementById('pause').textContent='Pause';
+    show(0);
+  }
+  document.getElementById('startBtn').onclick=start;
+  document.getElementById('restart').onclick=function(){ if(!started){ start(); return; } paused=false; show(0); };
+  document.getElementById('pause').onclick=function(){
+    if(!started) return;
+    paused=!paused;
+    this.textContent=paused?'Resume':'Pause';
+    if(paused) LosPlayer.stop();
+    else {
+      var src=slides[i].getAttribute('data-audio');
+      LosPlayer.play(src, function(){ if(!paused && i<slides.length-1) show(i+1); });
+    }
   };
 })();
 </script>

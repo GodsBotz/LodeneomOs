@@ -3,59 +3,229 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="theme-color" content="#5c1212"/>
-<title>L_OS · B · Guided practice</title>
+<title>L_OS · Guided Practice</title>
 <style>
-:root{--brand:#8B1E1E;--gold:#c4a35a}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#fafaf9;color:#1c1917;min-height:100dvh}
-.top{background:linear-gradient(135deg,#5c1212,#8B1E1E);color:#fff8f6;padding:1rem 1rem 1.15rem}
-.top a{color:#c4a35a;font-weight:700;font-size:.8rem;text-decoration:none}
-.top h1{margin:.35rem 0 0;font-size:1.2rem}
-.top p{margin:.3rem 0 0;font-size:.8rem;opacity:.9}
-.wrap{max-width:420px;margin:0 auto;padding:1rem 1rem 2.5rem}
-.player{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:.85rem;margin-bottom:1rem}
-.player strong{display:block;font-size:.85rem;color:var(--brand);margin-bottom:.4rem}
-.player button{border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;background:var(--brand);color:#fff;cursor:pointer;width:100%}
-.player .st{font-size:.72rem;color:#57534e;margin:.4rem 0 0}
-.step{display:flex;gap:.65rem;background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:.75rem;margin:.4rem 0;font-size:.86rem;line-height:1.4}
-.step .n{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center}
-.nav{display:flex;gap:.5rem;margin-top:1.25rem}
-.nav a{flex:1;text-align:center;padding:.7rem;border-radius:999px;font-weight:800;font-size:.82rem;text-decoration:none}
-.nav .ghost{border:1.5px solid var(--brand);color:var(--brand)}
-.nav .brand{background:var(--brand);color:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,sans-serif;background:#5c1212;color:#fff8f6;min-height:100dvh;padding:0}
+.shell{max-width:430px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+.top{padding:.85rem 1rem .35rem}
+.eyebrow{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#c4a35a;font-weight:700}
+h1{font-size:1.1rem;margin:.15rem 0}
+.step-lab{font-size:.75rem;opacity:.85}
+/* tip ABOVE phone — like Role Path arrangement */
+.tip{margin:.35rem .75rem .5rem;background:rgba(255,255,255,.1);border:1px solid rgba(196,163,90,.45);border-radius:14px;padding:.75rem .85rem}
+.tip strong{display:block;font-size:.88rem;margin-bottom:.3rem;color:#c4a35a}
+.tip p{font-size:.8rem;line-height:1.45;opacity:.95}
+.phone-wrap{flex:1;padding:0 .75rem;display:flex;align-items:stretch;min-height:0}
+.phone{flex:1;background:#fafaf9;color:#1c1917;border-radius:22px;overflow:hidden;position:relative;border:2px solid #292524;min-height:360px;max-height:52dvh;display:flex;flex-direction:column}
+.status{height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 .75rem;font-size:.58rem;font-weight:700;opacity:.65;background:#fff}
+.body{flex:1;padding:.55rem .7rem 2.6rem;position:relative;overflow:auto;-webkit-overflow-scrolling:touch}
+.nav{position:absolute;left:0;right:0;bottom:0;height:46px;background:#fff;border-top:1px solid #e7e5e4;display:flex;align-items:center;justify-content:space-around;font-size:.52rem;font-weight:700;color:#78716c}
+.nav .on{color:#8B1E1E}
+.hero{background:linear-gradient(135deg,#fff8f6,#fafaf9);border:1px solid #f5d0c8;border-radius:12px;padding:.55rem .6rem;margin:.3rem 0}
+.hero strong{color:#8B1E1E;display:block;font-size:.86rem}
+.hero span{font-size:.68rem;color:#57534e}
+.card{background:#fff;border:1px solid #e7e5e4;border-radius:12px;padding:.5rem .55rem;margin:.28rem 0;font-size:.74rem}
+.card strong{display:block}
+.card span{color:#57534e;font-size:.66rem;display:block;margin-top:.12rem;line-height:1.35}
+.chips{display:flex;flex-wrap:wrap;gap:.22rem}
+.chip{background:#f5f5f4;border-radius:999px;padding:.15rem .45rem;font-size:.62rem;font-weight:700;cursor:pointer;border:2px solid transparent}
+.chip.on{background:#8B1E1E;color:#fff}
+.chip.pickable:hover{border-color:#c4a35a}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:.3rem 0}
+.cal i{aspect-ratio:1;background:#f5f5f4;border-radius:7px;font-style:normal;font-size:.56rem;display:flex;align-items:center;justify-content:center;font-weight:650;cursor:pointer}
+.cal i.hot{background:#ecfdf5;color:#0f766e}
+.cal i.sel{box-shadow:inset 0 0 0 2px #c4a35a}
+.btn-sm{display:inline-block;background:#8B1E1E;color:#fff;border:none;border-radius:10px;padding:.45rem .7rem;font-weight:700;font-size:.74rem;cursor:pointer;margin:.2rem .2rem 0 0}
+.hl{outline:2.5px solid #c4a35a;box-shadow:0 0 0 6px rgba(196,163,90,.2);border-radius:12px}
+.controls{padding:.5rem .75rem 1.1rem;display:flex;gap:.4rem}
+.controls button,.controls a{flex:1;text-align:center;border:none;border-radius:12px;padding:.75rem;font-weight:800;cursor:pointer;text-decoration:none;font-size:.84rem}
+.controls .next{background:#c4a35a;color:#1c1917}
+.controls .back{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.controls .audio{background:#fff;color:#5c1212;flex:0 0 auto;padding:.75rem .9rem}
+.done{display:none;padding:2rem 1.2rem;text-align:center}
+.done.on{display:block}
+.done h2{font-size:1.25rem;margin-bottom:.5rem}
+.done p{opacity:.9;font-size:.88rem;line-height:1.45;margin-bottom:1rem}
+.done a{display:inline-block;background:#c4a35a;color:#1c1917;padding:.8rem 1.2rem;border-radius:12px;font-weight:800;text-decoration:none}
+.gate{padding:2rem 1.2rem;text-align:center}
+.gate button{background:#c4a35a;color:#1c1917;border:none;border-radius:14px;padding:.9rem 1.3rem;font-weight:800;font-size:.95rem;cursor:pointer;margin-top:.8rem}
+.check{display:inline-block;background:#ecfdf5;color:#065f46;font-size:.68rem;font-weight:800;padding:.2rem .45rem;border-radius:8px;margin-top:.35rem}
+.list{margin:.25rem 0 0;padding-left:1.05rem;font-size:.68rem;color:#57534e;line-height:1.45}
+.list li{margin:.12rem 0}
 </style>
 </head>
 <body>
-<div class="top">
-  <a href="L_OS_TUTORIAL_HUB.html">← Hub</a>
-  <h1>B · Guided practice</h1>
-  <p>~20 min · voice lesson · do each step in L_OS</p>
-</div>
-<div class="wrap">
-  <div class="player">
-    <strong>Voice guide</strong>
-    <button type="button" id="play">Play lesson</button>
-    <p class="st" id="st">Status: ready — tap Play</p>
+<div class="shell" id="app">
+  <div class="gate" id="gate">
+    <p class="eyebrow">Option B · Recommended</p>
+    <h1 style="margin:.4rem 0">Guided Practice</h1>
+    <p style="opacity:.9;font-size:.88rem;line-height:1.45">Hear the tip · see the full screen · do a micro-action · Next.<br/>Real voice (tap once to unlock). Tips sit above the phone — same pattern as Role Path.</p>
+    <button type="button" id="startBtn">▶ Start practice with audio</button>
+    <p style="margin-top:1rem"><a href="/L_OS_TUTORIAL_HUB.html" style="color:#c4a35a;font-weight:700;font-size:.82rem">All options</a></p>
   </div>
-  <div class="step"><span class="n">1</span><div><strong>Send Feedback</strong> (or praise) — watch 24h SLA.</div></div><div class="step"><span class="n">2</span><div><strong>Calendar</strong> — assign + notify a teammate.</div></div><div class="step"><span class="n">3</span><div><strong>Nudge</strong> a to-do owner from Today.</div></div><div class="step"><span class="n">4</span><div><strong>Tracker</strong> — mark a clock done.</div></div>
-  <div class="nav">
-    <a class="ghost" href="L_OS_TUTORIAL_HUB.html">All paths</a>
-    <a class="brand" href="index.html">Open L_OS</a>
+
+  <div id="main" style="display:none;flex-direction:column;min-height:100dvh">
+    <div class="top">
+      <p class="eyebrow">Guided Practice</p>
+      <h1 id="title">Step</h1>
+      <p class="step-lab" id="stepLab">1 / 7</p>
+    </div>
+    <div class="tip">
+      <strong id="tipK">Tip</strong>
+      <p id="tipT"></p>
+      <span class="check" id="doneMark" style="display:none">Action complete ✓</span>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone" id="phone"></div>
+    </div>
+    <div class="controls">
+      <button type="button" class="back" id="prev">Back</button>
+      <button type="button" class="audio" id="replay">🔊</button>
+      <button type="button" class="next" id="next">Next</button>
+    </div>
+  </div>
+
+  <div class="done" id="done">
+    <h2>You’re ready</h2>
+    <p>You practiced Today, seat switch, Calendar, Register, Chat, and EOD. Open L_OS and run the house in truth.</p>
+    <a href="/L_OS.html">Enter L_OS</a>
+    <p style="margin-top:1rem"><a href="/L_OS_TUTORIAL_HUB.html" style="color:#c4a35a;font-weight:700">Other tutorials</a></p>
   </div>
 </div>
+<script src="/tutorial/player.js"></script>
 <script>
 (function(){
-  var a=null;
-  document.getElementById('play').onclick=function(){
-    try{ if(a) a.pause(); }catch(e){}
-    a=new Audio('tutorial/audio/b_practice.mp3');
-    var st=document.getElementById('st');
-    st.textContent='Status: loading…';
-    a.play().then(function(){ st.textContent='Status: playing'; })
-      .catch(function(){ st.textContent='Status: blocked — tap again'; });
+  var steps=[
+    {title:'Today · primary next', audio:'/tutorial/audio/s1.mp3',
+      tipK:'Your one stress line',
+      tipT:'The burgundy card is your primary next action — the thing the house will not let you forget. Tap it when you know where it lives. This is how L_OS protects focus so excellence is not memory work.',
+      need:'tap-hero',
+      html:function(){return status()+body(
+        '<p style="font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:#78716c">You own · EA</p><h2 style="margin:.2rem 0 .4rem;font-size:1.05rem">Today</h2>'+
+        '<div class="hero hl" id="act" data-act="tap-hero"><strong>Next · File EOD</strong><span>Close the day · concrete tomorrow plan</span></div>'+
+        '<div class="card"><strong>On your calendar</strong><span>Stand-up 09:00 · Focus block 11:00</span></div>'+
+        '<div class="card"><strong>Your full day list</strong><ul class="list"><li>Team stand-up · 09:00</li><li>Standards review · 11:30</li><li>Client prep · 14:00</li><li>EOD prep · 16:30</li><li>Feedback chase · open</li></ul></div>'
+      )+nav('Today');}},
+    {title:'Switch seat', audio:'/tutorial/audio/s2.mp3',
+      tipK:'See the house through any seat',
+      tipT:'Tap the CEO chip. Leaders inspect calendars and clocks without inventing a second truth. Need-to-know follows the seat — so justice and privacy stay clean while you still lead.',
+      need:'seat-ceo',
+      html:function(){return status()+body(
+        '<p style="font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:#78716c">You own</p><h2 style="margin:.2rem 0 .4rem;font-size:1.05rem">Switch role / seat</h2>'+
+        '<div class="chips hl" id="seats"><span class="chip pickable on" data-seat="EA">EA</span><span class="chip pickable" data-seat="CEO">CEO</span><span class="chip pickable" data-seat="COO">COO</span><span class="chip pickable" data-seat="HR">HR</span><span class="chip pickable" data-seat="Commercial">Commercial</span><span class="chip pickable" data-seat="ParkLead">ParkLead</span></div>'+
+        '<div class="card"><strong>What changes with the seat</strong><ul class="list"><li>Today next action & pack duties</li><li>Calendar assign power</li><li>Register need-to-know</li><li>House pulse (leaders)</li><li>Stakeholders (CEO only)</li></ul></div>'
+      )+nav('Today');}},
+    {title:'Calendar density', audio:'/tutorial/audio/s3.mp3',
+      tipK:'Green means motion is real',
+      tipT:'Tap a green day. Month · Week · Day live here. Leaders assign and nudge so work lands on people who can move it — and Inbox tells them it arrived.',
+      need:'day',
+      html:function(){return status()+body(
+        '<div class="chips"><span class="chip on">Month</span><span class="chip">Week</span><span class="chip">Day</span></div>'+
+        '<div class="cal hl" id="cal"><i>3</i><i>4</i><i class="hot" data-day="5">5</i><i>6</i><i>7</i><i>8</i><i class="hot" data-day="9">9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i></div>'+
+        '<div class="card"><strong>What you can do on a day</strong><ul class="list"><li>See density (empty · light · full)</li><li>Add event + owner</li><li>Notify the assignee</li><li>Nudge when stuck</li><li>Mark done from the list</li></ul></div>'
+      )+nav('Calendar');}},
+    {title:'House Register', audio:'/tutorial/audio/s4.mp3',
+      tipK:'Open sealed law first',
+      tipT:'Tap SOP-FB-24. This is the house’s written truth. Chat grounds only on current sealed docs. CEO seals; staff read need-to-know. L_OS never invents governance — it enforces what leadership sealed.',
+      need:'sop',
+      html:function(){return status()+body(
+        '<h2 style="margin:0 0 .4rem;font-size:1.05rem">House Register</h2>'+
+        '<div class="card hl" id="sop" data-act="sop" style="cursor:pointer"><strong>SOP-FB-24 · Feedback 24h</strong><span>SEALED · current · justice path</span></div>'+
+        '<div class="card"><strong>Role Pack · EA</strong><span>SEALED · current · must / must-not</span></div>'+
+        '<div class="card"><strong>Also in the catalogue</strong><ul class="list"><li>SOP-EOD-1 · End-of-day plan</li><li>SOP-PERF-1 · Sealed clocks</li><li>SOP-LIFE-1 · Project lifecycle</li><li>SOP-SEAL-1 · No invented policy</li></ul></div>'
+      )+nav('Work');}},
+    {title:'Chat never seals', audio:'/tutorial/audio/s5.mp3',
+      tipK:'Intelligence helps — people decide',
+      tipT:'Tap “Confirm & distribute is yours”. Chat can extract and recommend from sealed law. Only you create to-dos and calendar. Grok never seals, never marks done, never invents policy.',
+      need:'chat',
+      html:function(){return status()+body(
+        '<h2 style="margin:0 0 .4rem;font-size:1.05rem">Lodeneom Chat</h2>'+
+        '<div class="hero"><strong>Register-grounded</strong><span>Async jobs · free navigation · notify when ready</span></div>'+
+        '<div class="card hl" id="chatBound" data-act="chat" style="cursor:pointer"><strong>Confirm & distribute is yours</strong><span>Grok never seals · L_OS enforces</span></div>'+
+        '<div class="card"><strong>What Chat is for</strong><ul class="list"><li>Standards scrutiny with cites</li><li>Meeting extract proposals</li><li>House doc lookup</li><li>Never a seal or authority stamp</li></ul></div>'
+      )+nav('Chat');}},
+    {title:'EOD → calendar', audio:'/tutorial/audio/s6.mp3',
+      tipK:'Close the day in truth',
+      tipT:'Tap File EOD. Wins, blockers, and a concrete tomorrow plan. Tomorrow lines land on the next working day calendar with a self-reminder — so the week stays real, not aspirational.',
+      need:'eod',
+      html:function(){return status()+body(
+        '<h2 style="margin:0 0 .4rem;font-size:1.05rem">EOD briefing</h2>'+
+        '<div class="card"><strong>Wins · blockers · tomorrow · needs</strong><span>Leadership sees staff filings (need-to-know)</span></div>'+
+        '<div class="card"><strong>After you file</strong><ul class="list"><li>Tomorrow → next working day calendar</li><li>Self-reminder in Inbox</li><li>Re-open any filed card</li><li>Leaders roll up EODs for briefs</li></ul></div>'+
+        '<button type="button" class="btn-sm hl" id="eodBtn" data-act="eod">File EOD table</button>'
+      )+nav('Help');}},
+    {title:'You’re almost out', audio:'/tutorial/audio/s8.mp3',
+      tipK:'Enter as an operator',
+      tipT:'No micro-action left — press Next to finish. Then open the real L_OS and run the house. Tutorials stay in Help anytime.',
+      need:null,
+      html:function(){return status()+body(
+        '<div class="hero"><strong>Practice complete path</strong><span>Today · seat · calendar · register · chat · EOD</span></div>'+
+        '<div class="card"><strong>Still available</strong><ul class="list"><li>A · Express refresher</li><li>C · Role Path by seat</li><li>PWA Add to Home Screen at Phase-1 complete</li></ul></div>'
+      )+nav('Help');}}
+  ];
+  var i=0, acted=false;
+  function status(){return '<div class="status"><span>9:41</span><span>L_OS</span></div>';}
+  function body(h){return '<div class="body">'+h+'</div>';}
+  function nav(on){var t=['Today','Work','Calendar','Tracker','Help'];return '<div class="nav">'+t.map(function(x){return '<span class="'+(x===on?'on':'')+'">'+x+'</span>';}).join('')+'</div>';}
+  function render(){
+    var s=steps[i];
+    document.getElementById('title').textContent=s.title;
+    document.getElementById('stepLab').textContent=(i+1)+' / '+steps.length;
+    document.getElementById('tipK').textContent=s.tipK;
+    document.getElementById('tipT').textContent=s.tipT;
+    document.getElementById('phone').innerHTML=s.html();
+    acted=!s.need;
+    document.getElementById('doneMark').style.display=acted?'inline-block':'none';
+    document.getElementById('next').textContent=s.need&&!acted?'Do the action…':'Next';
+    bind();
+    LosPlayer.play(s.audio);
+  }
+  function markDone(){
+    acted=true;
+    document.getElementById('doneMark').style.display='inline-block';
+    document.getElementById('next').textContent=i===steps.length-1?'Finish':'Next';
+  }
+  function bind(){
+    var act=document.getElementById('act');
+    if(act) act.onclick=function(){ markDone(); };
+    var seats=document.getElementById('seats');
+    if(seats) seats.querySelectorAll('[data-seat]').forEach(function(c){
+      c.onclick=function(){
+        seats.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on');});
+        c.classList.add('on');
+        if(c.getAttribute('data-seat')==='CEO') markDone();
+      };
+    });
+    var cal=document.getElementById('cal');
+    if(cal) cal.querySelectorAll('[data-day]').forEach(function(d){
+      d.onclick=function(){ cal.querySelectorAll('i').forEach(function(x){x.classList.remove('sel');}); d.classList.add('sel'); markDone(); };
+    });
+    var sop=document.getElementById('sop');
+    if(sop) sop.onclick=function(){ markDone(); sop.style.background='#fff8f6'; };
+    var chat=document.getElementById('chatBound');
+    if(chat) chat.onclick=function(){ markDone(); };
+    var eod=document.getElementById('eodBtn');
+    if(eod) eod.onclick=function(){ markDone(); eod.textContent='EOD filed ✓'; };
+  }
+  document.getElementById('startBtn').onclick=function(){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('main').style.display='flex';
+    render();
   };
+  document.getElementById('next').onclick=function(){
+    if(steps[i].need && !acted){ LosPlayer.play('/tutorial/audio/practice.mp3'); return; }
+    if(i>=steps.length-1){
+      document.getElementById('main').style.display='none';
+      document.getElementById('done').classList.add('on');
+      LosPlayer.play('/tutorial/audio/s8.mp3');
+      return;
+    }
+    i++; render();
+  };
+  document.getElementById('prev').onclick=function(){ if(i>0){ i--; render(); } };
+  document.getElementById('replay').onclick=function(){ LosPlayer.play(steps[i].audio); };
 })();
 </script>
 </body>
