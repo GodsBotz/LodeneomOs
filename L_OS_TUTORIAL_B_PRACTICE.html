@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#5c1212"/>
+<title>L_OS · B · Guided practice</title>
+<style>
+:root{--brand:#8B1E1E;--gold:#c4a35a}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#fafaf9;color:#1c1917;min-height:100dvh}
+.top{background:linear-gradient(135deg,#5c1212,#8B1E1E);color:#fff8f6;padding:1rem 1rem 1.15rem}
+.top a{color:#c4a35a;font-weight:700;font-size:.8rem;text-decoration:none}
+.top h1{margin:.35rem 0 0;font-size:1.2rem}
+.top p{margin:.3rem 0 0;font-size:.8rem;opacity:.9}
+.wrap{max-width:420px;margin:0 auto;padding:1rem 1rem 2.5rem}
+.player{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:.85rem;margin-bottom:1rem}
+.player strong{display:block;font-size:.85rem;color:var(--brand);margin-bottom:.4rem}
+.player button{border:0;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;background:var(--brand);color:#fff;cursor:pointer;width:100%}
+.player .st{font-size:.72rem;color:#57534e;margin:.4rem 0 0}
+.step{display:flex;gap:.65rem;background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:.75rem;margin:.4rem 0;font-size:.86rem;line-height:1.4}
+.step .n{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;gap:.5rem;margin-top:1.25rem}
+.nav a{flex:1;text-align:center;padding:.7rem;border-radius:999px;font-weight:800;font-size:.82rem;text-decoration:none}
+.nav .ghost{border:1.5px solid var(--brand);color:var(--brand)}
+.nav .brand{background:var(--brand);color:#fff}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="L_OS_TUTORIAL_HUB.html">← Hub</a>
+  <h1>B · Guided practice</h1>
+  <p>~20 min · voice lesson · do each step in L_OS</p>
+</div>
+<div class="wrap">
+  <div class="player">
+    <strong>Voice guide</strong>
+    <button type="button" id="play">Play lesson</button>
+    <p class="st" id="st">Status: ready — tap Play</p>
+  </div>
+  <div class="step"><span class="n">1</span><div><strong>Send Feedback</strong> (or praise) — watch 24h SLA.</div></div><div class="step"><span class="n">2</span><div><strong>Calendar</strong> — assign + notify a teammate.</div></div><div class="step"><span class="n">3</span><div><strong>Nudge</strong> a to-do owner from Today.</div></div><div class="step"><span class="n">4</span><div><strong>Tracker</strong> — mark a clock done.</div></div>
+  <div class="nav">
+    <a class="ghost" href="L_OS_TUTORIAL_HUB.html">All paths</a>
+    <a class="brand" href="index.html">Open L_OS</a>
+  </div>
+</div>
+<script>
+(function(){
+  var a=null;
+  document.getElementById('play').onclick=function(){
+    try{ if(a) a.pause(); }catch(e){}
+    a=new Audio('tutorial/audio/b_practice.mp3');
+    var st=document.getElementById('st');
+    st.textContent='Status: loading…';
+    a.play().then(function(){ st.textContent='Status: playing'; })
+      .catch(function(){ st.textContent='Status: blocked — tap again'; });
+  };
+})();
+</script>
+</body>
+</html>

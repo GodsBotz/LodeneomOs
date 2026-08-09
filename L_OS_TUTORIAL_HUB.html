@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#5c1212"/>
+<title>L_OS · Tutorial hub</title>
+<style>
+:root{--brand:#8B1E1E;--brand2:#5c1212;--gold:#c4a35a;--ink:#1c1917;--muted:#57534e;--line:#e7e5e4}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(165deg,#5c1212,#8B1E1E);color:#fff8f6;min-height:100dvh;padding:1rem 1rem 2.5rem}
+.wrap{max-width:420px;margin:0 auto}
+.eyebrow{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin:0 0 .35rem}
+h1{font-size:1.35rem;margin:0 0 .5rem}
+.lead{font-size:.88rem;line-height:1.45;opacity:.92;margin:0 0 1rem}
+.card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:.9rem;margin:.55rem 0;display:block;color:#fff8f6;text-decoration:none}
+.card:active{background:rgba(255,255,255,.16)}
+.card h2{margin:0 0 .25rem;font-size:1rem;color:#c4a35a}
+.card p{margin:0;font-size:.8rem;line-height:1.4;opacity:.9}
+.tag{display:inline-block;font-size:.62rem;font-weight:800;padding:.2rem .45rem;border-radius:999px;background:rgba(196,163,90,.25);color:#c4a35a;margin-top:.45rem}
+.audio{background:rgba(0,0,0,.25);border:1px solid rgba(196,163,90,.4);border-radius:14px;padding:.75rem;margin:0 0 1rem}
+.audio strong{display:block;font-size:.82rem;margin-bottom:.35rem}
+.audio button{border:0;border-radius:999px;padding:.55rem 1rem;font-weight:800;background:#c4a35a;color:#1c1917;cursor:pointer}
+.audio p{font-size:.72rem;opacity:.85;margin:.4rem 0 0}
+.back{display:inline-block;margin-top:1rem;color:#c4a35a;font-weight:700;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">L_OS · Learn the house</p>
+  <h1>Pick a path</h1>
+  <p class="lead">Three lessons with real voice. Same standards. Tap a card to open the video-style lesson on your phone.</p>
+
+  <div class="audio">
+    <strong>Play test · unlock audio on phone</strong>
+    <button type="button" id="playIntro">Play intro</button>
+    <p id="status">Status: tap Play intro first (required on iPhone)</p>
+  </div>
+
+  <a class="card" href="L_OS_TUTORIAL_A_EXPRESS.html">
+    <h2>A · Express (~8 min)</h2>
+    <p>Today hero → one to-do → EOD land. Best first day.</p>
+    <span class="tag">Voice lesson</span>
+  </a>
+  <a class="card" href="L_OS_TUTORIAL_B_PRACTICE.html">
+    <h2>B · Guided practice (~20 min)</h2>
+    <p>Feedback · calendar assign · nudge · Tracker clock.</p>
+    <span class="tag">Voice lesson</span>
+  </a>
+  <a class="card" href="L_OS_TUTORIAL_C_ROLE.html">
+    <h2>C · Role seat training (~15 min)</h2>
+    <p>Switch seat · Register · must / must-not · real seat before EOD.</p>
+    <span class="tag">Voice lesson</span>
+  </a>
+
+  <a class="back" href="index.html">← Back to L_OS</a>
+</div>
+<script>
+(function(){
+  var a=null;
+  function play(src,label){
+    try{ if(a){a.pause();} }catch(e){}
+    a=new Audio(src);
+    var st=document.getElementById('status');
+    st.textContent='Status: loading…';
+    a.play().then(function(){ st.textContent='Status: playing — '+label; })
+      .catch(function(err){ st.textContent='Status: blocked — tap again / check file tutorial/audio/'; console.warn(err); });
+  }
+  document.getElementById('playIntro').onclick=function(){ play('tutorial/audio/intro.mp3','intro'); };
+})();
+</script>
+</body>
+</html>
