@@ -10,7 +10,7 @@
 <meta name="application-name" content="L_OS"/>
 <meta name="mobile-web-app-capable" content="yes"/>
 <title>Lodeneom OS (L_OS)</title>
-<!-- v1.76.10 · Deliver todo door shows submit list · TO-DOS pills equal row -->
+<!-- v1.76.14 · Deliver eod/votes route · Votes one header · FAB Show tray · cold-load walk -->
 <style>
 :root{--bg:#5c1212;--brand:#8B1E1E;--gold:#c4a35a;--paper:#fafaf9;--ink:#1c1917;--muted:#57534e;--line:#e7e5e4;--ok:#0f766e;--urgent:#b91c1c;--teal:#0f766e;--teal-soft:#ecfdf5;--amber:#a16207;--amber-soft:#fffbeb;--empty:#6366f1;--empty-soft:#eef2ff}
 *{box-sizing:border-box}
@@ -1016,8 +1016,8 @@ body.chat-open #app.show{background:var(--paper)}
 #sc-o2 label{opacity:.9;font-size:.76rem}
 
 
-/* v1.76.10 · never leave screens unresponsive */
-/* v1.76.10 · draggable Show/Hide FAB + numbered Guided Stream */
+/* v1.76.13 · never leave screens unresponsive */
+/* v1.76.13 · draggable Show/Hide FAB + numbered Guided Stream */
 #fabStack{
   position:fixed;
   right:12px;
@@ -1061,7 +1061,7 @@ body.chat-open #app.show{background:var(--paper)}
   font-size:.7rem;color:var(--muted);line-height:1.35;
 }
 
-/* v1.76.10 · natural chat timeline (user ↔ AI interleaved, never pile users on top) */
+/* v1.76.13 · natural chat timeline (user ↔ AI interleaved, never pile users on top) */
 #mode-chat.gs-chat .gs-stream{display:flex;flex-direction:column;gap:0}
 #chatTimeline{display:flex;flex-direction:column;gap:.15rem;padding:.15rem 0 1rem}
 .gs-turn{display:flex;flex-direction:column;gap:.2rem;margin:.15rem 0 .55rem}
@@ -1069,7 +1069,7 @@ body.chat-open #app.show{background:var(--paper)}
 .gs-turn .gs-job-wrap,.gs-turn .job-card{margin:.1rem 0 0}
 .gs-turn .gs-card{margin-top:.15rem}
 
-/* v1.76.10 · Chat OS LOOK (WhatsApp-class · approved visual) */
+/* v1.76.13 · Chat OS LOOK (WhatsApp-class · approved visual) */
 #sc-thread{
   --th-paper:#f7f3ec;
   --th-cream:#faf7f2;
@@ -1322,7 +1322,7 @@ body.chat-open #mode-chat *,
 }
 #agendaVertChips.vert-chips{display:none!important}
 
-/* v1.76.10 · onboarding exclusive fixed layers · never stack-scroll */
+/* v1.76.13 · onboarding exclusive fixed layers · never stack-scroll */
 .screen:not(.active){
   display:none!important;
   pointer-events:none!important;
@@ -1678,7 +1678,7 @@ body.thread-open .thread-stream{padding-bottom:5.2rem;min-height:calc(100dvh - 8
 #sc-inbox.screen.active,#sc-thread.screen.active{display:block!important}
 
 
-/* v1.76.10 · pin justice/utility rooms + kill stuck sheets */
+/* v1.76.13 · pin justice/utility rooms + kill stuck sheets */
 #sc-fq.screen.active,#sc-rr.screen.active,#sc-sus.screen.active,
 #sc-eod.screen.active,#sc-esc.screen.active,#sc-help.screen.active,
 #sc-stakeholders.screen.active,#sc-fb.screen.active{
@@ -1718,7 +1718,7 @@ body.thread-open .thread-stream{padding-bottom:5.2rem;min-height:calc(100dvh - 8
 #chatTimeline{display:flex;flex-direction:column;gap:.85rem;padding:.25rem 0 1rem}
 .gs-turn{display:flex;flex-direction:column;gap:.45rem}
 
-/* v1.76.10 · GS composer above footer/FAB so Send is tappable */
+/* v1.76.13 · GS composer above footer/FAB so Send is tappable */
 #sc-work.chat-focus #mode-chat,
 #mode-chat.gs-chat{
   display:flex!important;
@@ -1751,7 +1751,7 @@ body.chat-open #fabStack{
 }
 body.chat-open #mainNav{z-index:100}
 
-/* v1.76.10 · onboarding: no footer, no FABs, clean layers */
+/* v1.76.13 · onboarding: no footer, no FABs, clean layers */
 body.onboarding #mainNav,
 body:not(.home):not(.inbox-open):not(.thread-open):not(.chat-open) #mainNav{display:none!important;pointer-events:none!important}
 body.onboarding #fabStack{display:none!important}
@@ -1784,7 +1784,7 @@ body.onboarding #fabStack{display:none!important}
 #newChatSeats .chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
 
 
-/* v1.76.10 · FAB above footer · sheets dismissible · tracker expand-in-place */
+/* v1.76.13 · FAB above footer · sheets dismissible · tracker expand-in-place */
 #fabStack{z-index:120!important;bottom:calc(3.8rem + env(safe-area-inset-bottom,0px))!important}
 #fabStack .fab.hide-toggle{z-index:121!important}
 body.home #fabStack{bottom:calc(3.8rem + env(safe-area-inset-bottom,0px))!important}
@@ -1803,9 +1803,9 @@ body.onboarding #mode-chat.gs-chat{display:none!important}
 .sheet-bg.show{display:flex!important;pointer-events:auto!important}
 
 
-/* v1.76.10 seven-door Home · zero tab bar */
+/* v1.76.13 seven-door Home · zero tab bar */
 
-/* v1.76.10 · Home shell only */
+/* v1.76.13 · Home shell only */
 body.v171-home #sc-home > *:not(.topbar):not(#v171Surface){display:none!important}
 body.v171-home #sc-home > .topbar{display:flex!important}
 body.v171-home #v171Surface{display:block!important}
@@ -1833,7 +1833,7 @@ body.v171-home #todayMoreWrap,body.v171-home #nextHero,body.v171-home .layout-pi
 #v171Surface{margin-bottom:.5rem}
 
 
-/* v1.76.10 · Home shell only · engines live, chrome hidden */
+/* v1.76.13 · Home shell only · engines live, chrome hidden */
 #mainNav{display:none!important;height:0!important;max-height:0!important;overflow:hidden!important;visibility:hidden!important;pointer-events:none!important;opacity:0!important}
 body.v171-home #ownBadge,
 body.v171-home #switchSeatFull,
@@ -1889,7 +1889,7 @@ body.v171-surface .today-more,body.v171-surface .staff-guide,body.v171-surface .
 body.v171-surface .card.track-peek{display:none!important}
 
 
-/* v1.76.10 · Home = #v171Surface only · kill legacy by id */
+/* v1.76.13 · Home = #v171Surface only · kill legacy by id */
 body.v171-home #ownBadge,body.v171-home #switchSeatFull,body.v171-home #todayLayoutPills,body.v171-home #todayCalPeek,body.v171-home #todayTrackPeek,body.v171-home #staffGuide,body.v171-home #todayMoreWrap,body.v171-home #nextHero,body.v171-home #stressLine,body.v171-home #hotStrip,body.v171-home #todayAttn,body.v171-home #todayP1Strip,body.v171-home #mwfReadyBanner,body.v171-home #briefReadyBanner,body.v171-home #chatReadyStrip,body.v171-home #impactCard,body.v171-home #briefSettingsCard,body.v171-home #briefCard,body.v171-home #lblDoNow,body.v171-home #routinesDetails,body.v171-home #clkMwf,body.v171-home #clkAgenda,body.v171-home #clkJustice,body.v171-home #clkChat,body.v171-home #clkTrack,body.v171-home #clkEod,body.v171-home #clkStake,body.v171-home #clkEsc,body.v171-home #clkFb,body.v171-home #clkStd,body.v171-home #clkMeet,body.v171-home #lblYourList,body.v171-home #homeTodosCard,body.v171-home #todoPicTodayBar,body.v171-home #homeTodos,body.v171-home #homeTodoShowForm,body.v171-home #homeTodoForm,body.v171-surface #ownBadge,body.v171-surface #switchSeatFull,body.v171-surface #todayLayoutPills,body.v171-surface #todayCalPeek,body.v171-surface #todayTrackPeek,body.v171-surface #staffGuide,body.v171-surface #todayMoreWrap,body.v171-surface #nextHero,body.v171-surface #stressLine,body.v171-surface #hotStrip,body.v171-surface #todayAttn,body.v171-surface #todayP1Strip,body.v171-surface #mwfReadyBanner,body.v171-surface #briefReadyBanner,body.v171-surface #chatReadyStrip,body.v171-surface #impactCard,body.v171-surface #briefSettingsCard,body.v171-surface #briefCard,body.v171-surface #lblDoNow,body.v171-surface #routinesDetails,body.v171-surface #clkMwf,body.v171-surface #clkAgenda,body.v171-surface #clkJustice,body.v171-surface #clkChat,body.v171-surface #clkTrack,body.v171-surface #clkEod,body.v171-surface #clkStake,body.v171-surface #clkEsc,body.v171-surface #clkFb,body.v171-surface #clkStd,body.v171-surface #clkMeet,body.v171-surface #lblYourList,body.v171-surface #homeTodosCard,body.v171-surface #todoPicTodayBar,body.v171-surface #homeTodos,body.v171-surface #homeTodoShowForm,body.v171-surface #homeTodoForm{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;border:0!important}
 body.v171-home #sc-home > *:not(#v171Surface):not(#v171TodoPane):not(#v171BriefPane):not(#v171HousePane):not(.topbar){display:none!important}
 body.v171-home #sc-home > .topbar{display:flex!important}
@@ -1902,7 +1902,7 @@ body.v171-surface #v171TodoPane.on ~ #v171Surface{display:none!important}
 .v171-back{border:0;background:0;color:var(--brand);font-weight:800;font-size:.95rem;padding:.25rem 0;margin:0 0 .5rem;cursor:pointer}
 
 
-/* v1.76.10 · no footer gap · FAB collapsed default on home · tracker full page */
+/* v1.76.13 · no footer gap · FAB collapsed default on home · tracker full page */
 body.v171-home #sc-home, body.v171-surface #sc-home, body.home #sc-home{padding-bottom:1.25rem!important}
 #sc-tracker.track-deep #trackDoorList{display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important}
 #sc-tracker:not(.track-deep) #trackDoorList{display:block!important}
@@ -1912,7 +1912,7 @@ body.v171-home #fabStack{bottom:calc(1rem + env(safe-area-inset-bottom,0px))!imp
 #v171PlanBack{min-width:44px;min-height:44px;display:inline-flex;align-items:center;font-weight:800;font-size:1rem;color:var(--brand);border:0;background:0;padding:.35rem 0;margin:0 0 .5rem;cursor:pointer}
 
 
-/* v1.76.10 · burgundy grid Home */
+/* v1.76.13 · burgundy grid Home */
 #mainNav{display:none!important;height:0!important;visibility:hidden!important;pointer-events:none!important}
 body.v172-home #sc-home{
   background:#5c1212!important;
@@ -1988,7 +1988,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
 #sc-tracker.track-deep #trackDoorList{display:none!important}
 
 
-/* v1.76.10 · Project Lifecycle clean panes */
+/* v1.76.13 · Project Lifecycle clean panes */
 #v172LifeHub,#v172ProjList,#v172SpinePane{display:none;padding:1rem .9rem 2.5rem;background:#5c1212;color:#fff;min-height:100dvh}
 #v172LifeHub.on,#v172ProjList.on,#v172SpinePane.on{display:block!important}
 .v172-life-logo{background:#fff;border-radius:16px;padding:.85rem 1rem;margin:0 0 1rem;display:flex;align-items:center;gap:.75rem;box-shadow:0 4px 14px rgba(0,0,0,.12)}
@@ -2040,7 +2040,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
 #v171TodoPane.on{display:block!important;background:#5c1212;color:#fff;min-height:100dvh;padding:1rem .85rem 2.5rem}
 .v172-todo-actions{display:flex;gap:.35rem;margin:.15rem 0 .45rem;align-items:stretch}
 .v172-todo-actions button{flex:1;min-width:0;border:0;background:#fff;color:#5c1212;border-radius:999px;padding:.45rem .2rem;font-weight:800;font-size:.72rem;cursor:pointer}
-/* v1.76.10: hint must sit under the three pills, never as a 4th flex child */
+/* v1.76.13: hint must sit under the three pills, never as a 4th flex child */
 .v172-todo-sort{display:flex;flex-wrap:wrap;gap:.3rem;margin:0 0 .5rem}
 .v172-todo-sort button{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:999px;padding:.28rem .55rem;font-size:.68rem;font-weight:700;cursor:pointer}
 .v172-todo-sort button.on{background:#fff;color:#5c1212}
@@ -2310,6 +2310,48 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
 #v176SeedBtn.pill{width:auto;height:auto;border-radius:999px;padding:.28rem .55rem;font-size:.62rem}
 .v176-draft{background:#fff;border-radius:14px;padding:.7rem .75rem;margin:.5rem;border:1px solid #e7e5e4}
 
+
+@media (min-width: 720px){
+  #v172Board{max-width:720px;margin:0 auto}
+  #v172Board .v172-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:.45rem}
+  #v172Board .v172-tile{min-height:4.6rem;display:flex!important}
+  #v176HouseTile{display:flex!important}
+}
+body.seat-ceo #v176HouseTile, body.seat-coo #v176HouseTile, body.seat-ea #v176HouseTile{
+  display:flex!important;visibility:visible!important
+}
+#mwfSheet .mwf-top-messy, #mwfSheet .v176-back + .v176-back{display:none}
+#mwfSheet .v176-va-top{display:flex;align-items:center;justify-content:space-between;padding:.55rem .7rem;background:#5c1212;color:#fff}
+#mwfSheet .v176-va-top .home{border:0;background:0;color:#c4a35a;font-weight:800}
+#fabStack.v176-fab{z-index:80}
+#fabTray{display:none;flex-direction:column;gap:.35rem;align-items:flex-end;margin-bottom:.4rem}
+#fabStack.open #fabTray{display:flex}
+#fabTray .fab-nav{display:flex;gap:.35rem}
+
+
+/* 1.76.13 face */
+#v176TrackerTile{display:flex}
+#v171TodoEngine, #v171TodoEngine #homeTodoForm{
+  display:block!important; visibility:visible!important;
+}
+body.v172-home #v171TodoPane.on #homeTodoForm,
+body.v171-home #v171TodoEngine #homeTodoForm{
+  display:block!important; visibility:visible!important;
+}
+#v171TodoEngine #homeTodos, #v171TodoEngine #homeTodoShowForm{display:none!important}
+.v176-ceo-key{margin:.55rem .7rem;padding:.7rem;background:#fff;border:1px solid #e7e5e4;border-radius:14px;color:#1c1917}
+.v176-ceo-key .k{font-size:.62rem;letter-spacing:.08em;color:#8B1E1E;font-weight:800}
+#v172ChatPane.on{display:flex!important;flex-direction:column}
+#v172ChatLog{flex:1;min-height:8rem}
+#mwfSheet .v176-va-top{display:none!important} /* kill twin bar */
+#mwfSheet.v176-va .mwf-panel>h2,
+#mwfSheet.v176-va #mwfWhoView h2{font-size:1.15rem}
+#fabTray{display:none;flex-direction:column;gap:.35rem;align-items:flex-end;margin-bottom:.35rem}
+#fabStack.open #fabTray, #fabStack.show-tools #fabTray{display:flex}
+#fabSplit{display:flex;border-radius:999px;overflow:hidden;border:1.5px solid #c4a35a;background:#5c1212}
+#fabSplit button{border:0;background:transparent;color:#c4a35a;font-weight:800;padding:.45rem .7rem;font-size:.78rem}
+#fabSplit button+button{border-left:1px solid #c4a35a}
+
 </style>
 
 
@@ -2376,7 +2418,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
   <div class="screen hm" id="sc-home">
     <div class="topbar">
       <div>
-        <p class="eyebrow" style="text-align:left;color:var(--muted)">L_OS · command center · v1.76.10</p>
+        <p class="eyebrow" style="text-align:left;color:var(--muted)">L_OS · command center · v1.76.14</p>
         <h1>Home</h1>
         <p class="seat" id="seatLine">Demo · CEO</p>
       </div>
@@ -2393,6 +2435,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
         <button type="button" class="v172-tile lead" data-door="house" id="v176HouseTile"><strong>House</strong></button>
         <button type="button" class="v172-tile" data-door="todos"><strong>To-dos</strong></button>
         <button type="button" class="v172-tile" data-door="agenda"><strong>Agenda</strong></button>
+        <button type="button" class="v172-tile" data-door="tracker" id="v176TrackerTile"><strong>Tracker</strong><em>Doors</em></button>
         <button type="button" class="v172-tile chat" data-door="plan"><strong>Plan &amp; Strategize</strong><em>Your seat bot</em></button>
         <button type="button" class="v172-tile" data-door="cal"><strong>Calendar</strong></button>
         <button type="button" class="v172-tile" data-door="chat" style="position:relative"><strong>Inbox</strong><span id="v176MailBadge" hidden style="position:absolute;top:.28rem;right:.32rem;min-width:1.15rem;height:1.15rem;border-radius:999px;background:#be123c;color:#fff;font-size:.58rem;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 .22rem"></span></button>
@@ -2787,7 +2830,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
             <button type="button" class="gs-hint" data-q="Help the team fill the project tracker: right questions with @seats, gaps, Edge, lean next steps.">Fill my tracker</button>
           </div>
         </div>
-        <!-- v1.76.10 · single chronological timeline: user then AI per turn -->
+        <!-- v1.76.13 · single chronological timeline: user then AI per turn -->
         <div id="chatTimeline"></div>
         <div id="chatStreamMsgs" class="hidden" aria-hidden="true"></div>
         <div id="chatJobs" class="hidden" aria-hidden="true"></div>
@@ -3215,16 +3258,19 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
     <div class="topbar">
       <div>
         <p class="eyebrow" style="text-align:left;color:var(--muted)">≤1 min · multi-row · confirm = delivery time</p>
-        <h1>Deliveries</h1>
+        <h1>Deliver</h1>
         <p class="seat" id="delSeatLine">Your submissions</p>
       </div>
     </div>
+    <button type="button" class="v176-big-home" id="v176DelHome">← Home</button>
     
     <div class="del-doors" id="delDoors">
       <button type="button" class="del-door" data-del-door="new"><span class="del-door-num">1</span><div><strong>New delivery</strong><span class="sub">open to-dos only</span></div></button>
       <button type="button" class="del-door" data-del-door="await"><span class="del-door-num">2</span><div><strong>Awaiting confirm</strong><span class="sub">Your dual-confirm queue</span></div><span class="del-door-badge" id="delDoorBadge">0</span></button>
       <button type="button" class="del-door" data-del-door="charity"><span class="del-door-num">3</span><div><strong>Charity</strong><span class="sub">monthly · photos · hours</span></div></button>
       <button type="button" class="del-door" data-del-door="history"><span class="del-door-num">4</span><div><strong>History</strong><span class="sub">Past deliveries · receipts linked</span></div></button>
+      <button type="button" class="del-door" data-del-door="eod"><span class="del-door-num">5</span><div><strong>EOD</strong><span class="sub">end of day · a delivery</span></div></button>
+      <button type="button" class="del-door" data-del-door="votes"><span class="del-door-num">6</span><div><strong>Votes</strong><span class="sub">MWF · a delivery</span></div></button>
     </div>
     <button type="button" class="btn sm hidden" id="delDoorBack" style="margin:.35rem 0">← Deliver doors</button>
 <div class="persist-banner hidden" id="delConfirmBanner" role="button">
@@ -3414,11 +3460,11 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
       <p>Turns <strong>sealed</strong> standards into daily motion. Chat recommends; people seal. Grok never invents governance.</p>
     </div>
     <div class="card" id="fixLogCard">
-      <h2>Fix log · v1.76.10</h2>
+      <h2>Fix log · v1.76.14</h2>
       <p style="font-size:.78rem;color:var(--muted);margin:.15rem 0 .35rem">Phased depths · what this line sealed.</p>
       <p style="font-size:.74rem;color:var(--muted);margin:0 0 .35rem"><b>P0</b> every screen opens · <b>P1</b> every door · <b>P2</b> every save · <b>P3</b> every sheet · <b>P4</b> seat gates · <b>P5</b> corrupt store.</p>
       <ol>
-        <li><b>v1.76.10</b> — Thank sheet closes (X + backdrop). Show FAB above footer. Tracker panes expand below doors. Footer order Cal|Tracker. Mode-chat hidden on walk. Footer tabs hardened. Chat = Inbox threads.</li>
+        <li><b>v1.76.13</b> — Thank sheet closes (X + backdrop). Show FAB above footer. Tracker panes expand below doors. Footer order Cal|Tracker. Mode-chat hidden on walk. Footer tabs hardened. Chat = Inbox threads.</li>
         <li><b>v1.70.22</b> — Onboarding footer sealed off until Enter. Tracker Probation map. Chat coach short replies. New group sheet visible. SEATS product list.</li>
         <li><b>v1.70.21</b> — Guided Stream Send sat under footer/FAB. Composer now sits above the bar. Work compose lands in the COO thread.</li>
         <li><b>v1.70.19</b> — Guided Stream 1→5 now appears immediately; empty state no longer covers the cards.</li>
@@ -3475,7 +3521,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
     <div class="card">
       <h2>Map</h2>
       <p style="font-size:.82rem;color:var(--muted);margin:0;line-height:1.45">Footer: Today · Work · Calendar · Tracker · Deliver · Help. EOD · Escalate · Stakeholders live in Work (by importance). Register is Chat’s only grounding source.</p>
-      <p style="font-size:.75rem;color:var(--muted);margin:.5rem 0 0">L_OS · AIM-U · v1.76.10 · Grok never seals</p>
+      <p style="font-size:.75rem;color:var(--muted);margin:.5rem 0 0">L_OS · AIM-U · v1.76.14 · Grok never seals</p>
     </div>
   </div>
 </div>
@@ -3608,6 +3654,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
       <p class="eyebrow" style="text-align:left;color:var(--muted)">Human first · AI on @ only</p>
       <h1>Inbox</h1>
       <p class="purpose-line">1:1 and groups · ✓ sent · ✓✓ read · presence off</p>
+      <button type="button" id="v176InboxSeed" class="v176-pill" style="margin-top:.35rem;border-radius:999px;border:0;background:#c4a35a;color:#5c1212;font-weight:800;padding:.35rem .7rem">Seed mail</button>
     </div>
   </div>
   <div class="inbox-tabs" id="inboxTabs">
@@ -4037,7 +4084,7 @@ body.v172-home.v172-staff .v172-tile.lead{display:none!important}
   </div>
 </div>
 
-<div class="stamp" id="stamp"><strong>SURFACE:</strong> L_OS · AIM-U · v1.76.10 · onboard footer · tracker panes · smart chat · new group</div>
+<div class="stamp" id="stamp"><strong>SURFACE:</strong> L_OS · AIM-U · v1.76.14 · Deliver eod/votes · Votes one header · FAB Show tray</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -4199,6 +4246,14 @@ var SOP_LIB = [
   }
   function save(d){
     try{
+      /* Phase 0: bot never writes done:true */
+      try{
+        if(d && d.todos){
+          (d.todos||[]).forEach(function(t){
+            if(t && t.source==='plan-confirm') t.done=false;
+          });
+        }
+      }catch(e0){}
       d = normalizeStore(d);
       var prev={};
       try{ prev=JSON.parse(localStorage.getItem(STORE)||'{}')||{}; }catch(e){ prev={}; }
@@ -5189,7 +5244,7 @@ var SOP_LIB = [
     var cites=docs.map(function(d){return {id:d.id, title:d.title, locator:d.locator, snippet:d.body};});
     
     if(kind==='agentic_drop' || kind==='right_questions' || kind==='tracker_questions' || kind==='gap_edge' || kind==='plan_review' || kind==='plan' || kind==='forms' || kind==='house_map'){
-      /* v1.76.10 · approved Guided Stream sequence:
+      /* v1.76.13 · approved Guided Stream sequence:
          1 Understand → 2 Grounding → 3 Right questions → 4 Edge → 5 Lean → Confirm
          Never seals. Intent-aware — never echo bare greetings as Understand. */
       var rawQ=(q||'').trim();
@@ -5614,7 +5669,7 @@ var SOP_LIB = [
     var ceo=$('chatCeoKey'); if(ceo) ceo.style.display=state.role==='CEO'?'block':'none';
   }
   function renderJobList(){
-    /* v1.76.10 · chronological chat flow: each turn = user bubble then AI card (never pile users on top) */
+    /* v1.76.13 · chronological chat flow: each turn = user bubble then AI card (never pile users on top) */
     var tl=$('chatTimeline') || $('chatJobs');
     if(!tl) return;
     var jobs=loadJobs().slice().sort(function(a,b){
@@ -5663,7 +5718,7 @@ var SOP_LIB = [
     html+='<div class="result-card">';
     
     if(r.type==='agentic_drop' || r.type==='right_questions'){
-      /* v1.76.10 · always render approved sequence 1–5 + Confirm; never skip Edge/Lean */
+      /* v1.76.13 · always render approved sequence 1–5 + Confirm; never skip Edge/Lean */
       html='<div class="jstatus">ready</div><div class="gs-card">';
       html+='<div class="gs-card-head"><h3>Guided Stream</h3><span style="font-size:.7rem;color:var(--gold)">1→5 · never seals</span></div>';
       html+='<div class="gs-sec"><div class="lab gs-n" data-n="1">Understand</div><p>'+esc(r.understand||r.message||'')+'</p></div>';
@@ -5916,7 +5971,7 @@ var SOP_LIB = [
     }, delay);
   }
 
-  /* v1.76.10 · expose for Chat OS / thread @Lodeneom */
+  /* v1.76.13 · expose for Chat OS / thread @Lodeneom */
   try{
     window.createChatJob = createChatJob;
     window.runChatJob = runChatJob;
@@ -8002,7 +8057,7 @@ var SOP_LIB = [
   };
 
   /* feedback fab */
-  $('fabFb').onclick=function(){ try{ dismissBlockingOverlays(); }catch(e){} if($('fbScreen')) $('fbScreen').value=(state.screen||'')+' · '+(state.role||'')+' · v1.76.10'; if($('fbSheet')){ $('fbSheet').classList.add('show'); $('fbSheet').style.setProperty('pointer-events','auto','important'); } };
+  $('fabFb').onclick=function(){ try{ dismissBlockingOverlays(); }catch(e){} if($('fbScreen')) $('fbScreen').value=(state.screen||'')+' · '+(state.role||'')+' · v1.76.13'; if($('fbSheet')){ $('fbSheet').classList.add('show'); $('fbSheet').style.setProperty('pointer-events','auto','important'); } };
   $('fbClose').onclick=function(){ $('fbSheet').classList.remove('show'); };
   document.querySelectorAll('#fbTypes .chip').forEach(function(ch){
     ch.onclick=function(){ document.querySelectorAll('#fbTypes .chip').forEach(function(x){x.classList.remove('on');}); ch.classList.add('on'); fbType=ch.getAttribute('data-t'); $('praiseShareWrap').classList.toggle('hidden', fbType!=='Praise'); };
@@ -8163,7 +8218,7 @@ var SOP_LIB = [
       try{ renderCalendar(); }catch(e){}
     });
   });
-  /* calQuickAdd handler removed 1.76.10 */
+  /* calQuickAdd handler removed 1.76.13 */
   
   if($('todayTrackGo')) $('todayTrackGo').onclick=function(){ show('sc-tracker'); };
   if($('todayTrackPeek')) $('todayTrackPeek').onclick=function(e){ if(e.target && e.target.id==='todayTrackGo') return; show('sc-tracker'); };
@@ -8329,7 +8384,7 @@ var SOP_LIB = [
   // only apply zoom after entered — onboarding must stay 1:1
   if(typeof entered!=='undefined' && entered) applyFabZoom();
   else if($('fabZoomLab')) $('fabZoomLab').textContent='100%';
-  /* v1.76.10 · Show/Hide FAB: always on top in chat, clamp off-screen, persist */
+  /* v1.76.13 · Show/Hide FAB: always on top in chat, clamp off-screen, persist */
   (function initFabDrag(){
     var st=document.getElementById('fabStack');
     var btn=document.getElementById('fabHide');
@@ -8426,15 +8481,13 @@ var SOP_LIB = [
       st.classList.toggle('collapsed');
       var col=st.classList.contains('collapsed');
       try{ localStorage.setItem(COL_KEY, col?'1':'0'); }catch(e){}
-      var onHome=document.body.classList.contains('v172-home');
-      if(onHome){
-        btn.textContent='HELP';
-        st.querySelectorAll('.fab:not(.hide-toggle)').forEach(function(f){
-          f.style.setProperty('display', col?'none':'flex','important');
-        });
-      } else {
-        btn.textContent = col ? 'Show' : 'Hide';
-      }
+      /* v1.76.14 face: label is always Show/Hide — never HELP. HELP lives in tray. */
+      btn.textContent = col ? 'Show' : 'Hide';
+      st.querySelectorAll('.fab:not(.hide-toggle)').forEach(function(f){
+        f.style.setProperty('display', col?'none':'flex','important');
+      });
+      if(col) st.classList.remove('open','show-tools');
+      else st.classList.add('open');
       forceFabVisible();
     }
 
@@ -11020,7 +11073,7 @@ var SOP_LIB = [
   // wire Feedback with blocker type from attention - skip for density
 
   try{ refreshExportBar(); refreshDelConfirmBanner(); }catch(e){}
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.52 SCANNABLE BRIEF · ACCESS · HYGIENE · TODO PNG ========== */
@@ -11730,7 +11783,7 @@ var SOP_LIB = [
 
   })();
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   
@@ -12237,7 +12290,7 @@ var SOP_LIB = [
     if(tp) tp.style.fontSize='.8rem';
   }catch(e){}
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.55 FOOTER MORE · PROP DUE DATE · REMINDER FREQ · PULSE STUB ========== */
@@ -12469,10 +12522,10 @@ var SOP_LIB = [
   // expose
   window._openPulseSurvey = openPulseSurvey;
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
-  /* ========== v1.56 WORK HUB · v1.76.10 KEEP MORE TAB ========== */
+  /* ========== v1.56 WORK HUB · v1.76.13 KEEP MORE TAB ========== */
   // More stays — it opens moreSheet (Lodeneom, Plaud, Help, Pulse)
   try{ if($('moreNavSheet')) $('moreNavSheet').remove(); }catch(e){}
 
@@ -12558,7 +12611,7 @@ var SOP_LIB = [
     };
   }
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.57 BACKDROP · THANK · ← TODAY FROM PROJECT ========== */
@@ -12687,7 +12740,7 @@ var SOP_LIB = [
     };
   }
   try{ wireSheetBackdrop('thankSheet'); }catch(e){}
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.58 T3 DOORS · UNIVERSAL BACKDROP · DOCS INTAKE ========== */
@@ -12826,7 +12879,7 @@ var SOP_LIB = [
     row.onclick=function(){ openDocsIntake(); };
   })();
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.59 DELIVER CARDS · INBOX TAP · DOOR PAGE HEAD · ORDER ========== */
@@ -12873,7 +12926,7 @@ var SOP_LIB = [
     if(id==='sc-deliver'){ try{ renderDeliveriesAll(); }catch(e){} }
     if(id==='sc-work'){ try{ if(typeof renderWorkInbox==='function') renderWorkInbox(); }catch(e){} }
   };
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.60b TRACK LIST DOORS · BACK · CHAT WIRE (JS was skipped earlier) ========== */
@@ -12899,7 +12952,7 @@ var SOP_LIB = [
     v=v||'projects';
     var host=$('sc-tracker');
     if(host) host.classList.add('track-deep');
-    /* v1.76.10 · FULL PAGE pane · doors list hidden · ← Tracker doors returns list */
+    /* v1.76.13 · FULL PAGE pane · doors list hidden · ← Tracker doors returns list */
     if($('trackDoorList')){
       $('trackDoorList').classList.add('hidden');
       try{ $('trackDoorList').style.setProperty('display','none','important'); }catch(e){}
@@ -13172,7 +13225,7 @@ var SOP_LIB = [
     }
   })();
 
-  console.log('L_OS v1.76.10 · LOOK + Chat OS');
+  console.log('L_OS v1.76.13 · LOOK + Chat OS');
 
 
   /* ========== v1.61 CHAT CENTER · LEGEND · CEO KEY · PROBATION · SEED ========== */
@@ -13695,6 +13748,15 @@ var SOP_LIB = [
 
   /* ---- Deliver doors ---- */
   function showDelDoor(which){
+    /* v1.76.14 face: route eod/votes BEFORE hiding grid — doors 5/6 must open targets */
+    if(which==='eod'){
+      try{ if(window.show) show('sc-eod'); }catch(e){}
+      return;
+    }
+    if(which==='votes' || which==='culture'){
+      try{ if(typeof openMwf==='function') openMwf(); else if(window.show) show('sc-culture'); }catch(e){}
+      return;
+    }
     var doors=$('delDoors'); if(doors) doors.style.display='none';
     try{
       var cp=$('delCharityPaper');
@@ -13710,7 +13772,7 @@ var SOP_LIB = [
     document.querySelectorAll('#sc-deliver .card').forEach(function(c){
       var h=(c.querySelector('h2')||{}).textContent||'';
       var showC=false;
-      /* v1.76.10: Submit table card is .v175-del-paper with no h2 — old /Submit|New|table|multi/i matcher left the burgundy pane empty */
+      /* v1.76.13: Submit table card is .v175-del-paper with no h2 — old /Submit|New|table|multi/i matcher left the burgundy pane empty */
       var isSubmitPaper = c.classList.contains('v175-del-paper') || !!(c.querySelector && c.querySelector('#delSubmitBody'));
       if(which==='new' && (/Submit|New|table|multi/i.test(h) || isSubmitPaper)) showC=true;
       if(which==='await' && /Confirm|Await|queue|needed|review/i.test(h)) showC=true;
@@ -13809,7 +13871,7 @@ var SOP_LIB = [
       ];
     }
     if(!d.inbox.messages || typeof d.inbox.messages!=='object') d.inbox.messages={};
-    /* v1.76.10 · seed natural group flow matching approved LOOK */
+    /* v1.76.13 · seed natural group flow matching approved LOOK */
     if(!d.inbox.messages['g_corridor'] || (d.inbox.messages['g_corridor'].length<5 && !d.inbox._seed1705)){
       var t0=Date.now();
       d.inbox.messages['g_corridor']=[
@@ -13855,7 +13917,7 @@ var SOP_LIB = [
   }
   function ensureFooter(on){
     var nav=$('mainNav'); if(!nav) return;
-    /* v1.76.10 · seven-door house · footer always off */
+    /* v1.76.13 · seven-door house · footer always off */
     nav.style.setProperty('display','none','important');
     nav.style.setProperty('visibility','hidden','important');
     nav.style.setProperty('pointer-events','none','important');
@@ -14072,7 +14134,7 @@ var SOP_LIB = [
     }catch(e){ console.error(e); }
   };
 
-  /* v1.76.10 · message actions (tap or long-hold) — was missing openMsgActions */
+  /* v1.76.13 · message actions (tap or long-hold) — was missing openMsgActions */
   function hideSheet(id){
     var sh=$(id); if(!sh) return;
     sh.classList.remove('show');
@@ -14515,8 +14577,8 @@ var SOP_LIB = [
   }
   window.openPlaud = openPlaud;
 
-  /* v1.76.10 · Call (offline-honest) */
-  /* v1.76.10 · Live calls + Plaud record-on-consent */
+  /* v1.76.13 · Call (offline-honest) */
+  /* v1.76.13 · Live calls + Plaud record-on-consent */
   var callState = {
     active:false, stream:null, recorder:null, chunks:[], recognition:null,
     transcript:[], startedAt:0, timer:null, muted:false, videoOn:false,
@@ -14878,7 +14940,7 @@ var SOP_LIB = [
       if($('threadIn')){
         $('threadIn').value='@Lodeneom re: '+src;
       }
-      /* v1.76.10 · select option = send, not just prefill */
+      /* v1.76.13 · select option = send, not just prefill */
       setTimeout(function(){ try{ sendThread(); }catch(e){ toast('Tap send to run @Lodeneom'); } }, 60);
     };
     if($('msgTaskClose')) $('msgTaskClose').onclick=function(){ hideSheet('msgTaskSheet'); };
@@ -15024,7 +15086,7 @@ var SOP_LIB = [
 
     if($('chatFile') && !$('chatFile')._v170){
       $('chatFile')._v170=true;
-      /* v1.76.10 · attach change handled above with size + vision guard */
+      /* v1.76.13 · attach change handled above with size + vision guard */
     }
 
     setTimeout(function(){ paintSpine(); paintCalSeats(); paintPstk(); }, 600);
@@ -15131,7 +15193,7 @@ var SOP_LIB = [
 </script>
 
 <script>
-/* v1.76.10 · hygiene: overlays, pin rooms, pulse/mwf/agenda, backs */
+/* v1.76.13 · hygiene: overlays, pin rooms, pulse/mwf/agenda, backs */
 (function(){
   function $(id){ return document.getElementById(id); }
   function toast(m){ try{ if(typeof window.toast==='function') window.toast(m); }catch(e){} }
@@ -15340,7 +15402,7 @@ var SOP_LIB = [
     var fr=$('tutFrame'); if(fr) fr.src='about:blank';
   };
 
-  /* v1.76.10 final — More, stake lock, thread bounce always last */
+  /* v1.76.13 final — More, stake lock, thread bounce always last */
   (function(){
     var more = document.getElementById('navMoreBtn') || document.querySelector('#mainNav [data-tab="more"]');
     if(more && !more._v1716){
@@ -15379,14 +15441,14 @@ var SOP_LIB = [
       return r;
     };
   })();
-  console.log('L_OS v1.76.10 · thank dismiss · FAB · tracker expand · footer order');
+  console.log('L_OS v1.76.13 · thank dismiss · FAB · tracker expand · footer order');
 
 })();
 </script>
 </body>
 
 <script>
-/* v1.76.10 · Project Lifecycle panes · engines reused · clean functional */
+/* v1.76.13 · Project Lifecycle panes · engines reused · clean functional */
 (function(){
   function $(id){return document.getElementById(id);}
   function role(){try{return (window.state&&window.state.role)||'CEO';}catch(e){return 'CEO';}}
@@ -15406,7 +15468,7 @@ var SOP_LIB = [
       var fs=$('fabStack'); if(!fs)return;
       fs.style.display='flex';
       fs.querySelectorAll('.fab:not(.hide-toggle)').forEach(function(f){f.style.setProperty('display','none','important');});
-      if($('fabHide')){ $('fabHide').textContent='HELP'; $('fabHide').style.display='flex'; }
+      if($('fabHide')){ $('fabHide').textContent='Show'; $('fabHide').style.display='flex'; }
     }catch(e){}
   }
   function weekBounds(){
@@ -15449,7 +15511,7 @@ var SOP_LIB = [
     });
   }
   
-  /* v1.76.10 · Charity + MWF findability — keep existing mwfSheet */
+  /* v1.76.13 · Charity + MWF findability — keep existing mwfSheet */
   function monthLabel(d){
     try{ return (d||new Date()).toLocaleString(undefined,{month:'long'}); }catch(e){ return 'This month'; }
   }
@@ -16240,7 +16302,7 @@ save(data);
       if(typeof renderHomeTodos==='function') renderHomeTodos();
     }catch(e){}
   }
-  function openTodos(){ try{ var fab=$('fabStack'); if(fab) fab.style.setProperty('display','none','important'); }catch(e){} 
+  function openTodos(){ try{ if(typeof collapseFab==='function') collapseFab(); }catch(e){} 
     ensureTodoPane(); hidePanes();
     if($('v172Board'))$('v172Board').style.setProperty('display','none','important');
     document.body.classList.add('v172-home'); killNav();
@@ -16310,9 +16372,12 @@ save(data);
       var ht=$('v176HouseTile');
       var lead=document.querySelector('.v172-tile.lead[data-door="house"]');
       var showH = (role()==='CEO'||role()==='COO'||role()==='EA');
+      try{ document.body.classList.toggle('seat-ceo', role()==='CEO');
+           document.body.classList.toggle('seat-coo', role()==='COO');
+           document.body.classList.toggle('seat-ea', role()==='EA'); }catch(e){}
       [ht, lead].forEach(function(el){
         if(!el) return;
-        if(showH){ el.style.removeProperty('display'); }
+        if(showH){ el.style.setProperty('display','flex','important'); el.style.setProperty('visibility','visible','important'); }
         else { el.style.setProperty('display','none','important'); }
       });
       var rs=$('v176RoleStrip');
@@ -16416,7 +16481,21 @@ save(data);
       try{ navigator.clipboard.writeText(text); toast('Copied'); }catch(e){ toast('Copy failed'); }
     };
     d.querySelector('[data-act="confirm"]').onclick=function(){
-      toast('Confirmed by you · email remains the record · bot never seals');
+      try{
+        var dstore=load();
+        dstore.todos=dstore.todos||[];
+        dstore.todos.push({
+          id:'todo-confirm-'+Date.now(),
+          title: String(text||'Confirmed recommendation').slice(0,180),
+          owner: (typeof role==='function'?role():'Park'),
+          due: '',
+          done: false,
+          source: 'plan-confirm'
+        });
+        save(dstore);
+        toast('Confirmed · to-do written · bot never seals');
+        try{ if(typeof paintTodoList==='function') paintTodoList(); }catch(e){}
+      }catch(e){ toast('Confirmed by you · email remains the record'); }
     };
     log.appendChild(d);
     log.scrollTop=log.scrollHeight;
@@ -16587,8 +16666,13 @@ save(data);
     if($('v172ChatIn')) $('v172ChatIn').placeholder='Message '+bot+'…';
     var isCeo=false;
     try{ isCeo = (typeof getSeatBind==='function' && getSeatBind()==='CEO') || (state && state.role==='CEO'); }catch(e){}
-    if(isCeo){ pane.classList.add('ceo-view'); paintCeoSwitcher(); }
-    else { pane.classList.remove('ceo-view'); }
+    if(isCeo){ pane.classList.add('ceo-view'); paintCeoSwitcher(); try{ paintCeoKeyCard(); }catch(e){} }
+    else { pane.classList.remove('ceo-view'); try{ var c=$('v176CeoKey'); if(c) c.remove(); }catch(e){} }
+    try{
+      var inspect = isCeo && (typeof planViewSeat==='function') && planViewSeat()!=='CEO' && planViewSeat()!==getSeatBind();
+      var send=$('v172ChatSend');
+      if(send) send.style.display = inspect ? 'none' : '';
+    }catch(e){}
     if(seatBotPaused(seat)){
       var log=$('v172ChatLog');
       if(log) log.innerHTML='';
@@ -16708,8 +16792,26 @@ function ensureNeedsPane(){
     if(k==='agenda'){
       if(window.show)show('sc-tracker');
       setTimeout(function(){
-        try{if(window.trackOpenDoor)trackOpenDoor('projects');}catch(e){}
+        try{
+          var list=$('trackDoorList');
+          if(list) list.style.display='none';
+          if(window.paintAgendaDoors) paintAgendaDoors();
+          else if(window.v176PaintAgenda) v176PaintAgenda();
+        }catch(e){}
         if(isLead()){try{if(window.openAgendaForm)openAgendaForm();}catch(e){}}
+        wireTrackerBack();
+      },50);
+      return;
+    }
+    if(k==='tracker'){
+      if(window.show)show('sc-tracker');
+      setTimeout(function(){
+        try{
+          var sc=$('sc-tracker'); if(sc) sc.classList.remove('track-deep');
+          var list=$('trackDoorList');
+          if(list){ list.style.removeProperty('display'); }
+          var doors=$('v176AgendaDoors'); if(doors) doors.style.display='none';
+        }catch(e){}
         wireTrackerBack();
       },50);
       return;
@@ -16766,14 +16868,9 @@ function ensureNeedsPane(){
       }
     }catch(e){}
     try{
-      if($('fabHide')){
-        $('fabHide').textContent='HELP';
-        $('fabHide').onclick=function(ev){
-          if(ev){ev.preventDefault();ev.stopPropagation();}
-          try{ if(window.show) show('sc-help'); }catch(e){}
-          killNav();
-        };
-      }
+      /* v1.76.14 face: collapsed label is Show — never HELP / More. Tray holds tools + HELP. */
+      if(typeof collapseFab==='function') collapseFab();
+      else if($('fabHide')){ $('fabHide').textContent='Show'; }
     }catch(e){}
     try{ if($('v172Board')) $('v172Board').style.setProperty('display','flex','important'); }catch(e){}
     document.querySelectorAll('#v172Board [data-door]').forEach(function(b){
@@ -16803,7 +16900,7 @@ function ensureNeedsPane(){
     window.cultureTodoId=cultureTodoId;
     window.monthLabel=monthLabel;
   }catch(e){}
-  console.log('L_OS v1.76.10 · Plan door = seat Grok Bot');
+  console.log('L_OS v1.76.13 · Plan door = seat Grok Bot');
 })();
 
   function v176EnsureBack(screenId){
@@ -16889,7 +16986,7 @@ function ensureNeedsPane(){
     box.innerHTML='<p style="color:#c4a35a;font-size:.78rem">Doors · not a changelog</p>'+
       '<div class="v176-help-door"><b>How we walk</b><span>Check is personal. Deliver is proof in. Confirm is human. Grok never seals.</span></div>'+
       '<div class="v176-help-door"><b>This phone</b><span>Seat bind. Back is Home. Inbox is people. Plan is the seat bot.</span></div>'+
-      '<div class="v176-help-door"><b>Fix log</b><span>Last door · stamped 1.76.10 — not 1.76.10 on the face.</span></div>';
+      '<div class="v176-help-door"><b>Fix log</b><span>Last door · stamped 1.76.13 — not 1.76.13 on the face.</span></div>';
     sc.appendChild(box);
   }
   paintHelpDoors();
@@ -16900,7 +16997,7 @@ function ensureNeedsPane(){
     try{ isCeo=(typeof getSeatBind==='function' && getSeatBind()==='CEO') || (state&&state.role==='CEO'); }catch(e){}
     var card=$('v176CeoKey');
     if(!isCeo){ if(card) card.remove(); return; }
-    if(card) return;
+    if(card){ card.style.display='block'; return; }
     card=document.createElement('div');
     card.id='v176CeoKey'; card.className='v176-ceo-key';
     card.innerHTML='<div class="k">THIS PHONE · CEO ONLY</div><h4 style="margin:.15rem 0 .25rem">xAI key</h4>'+
@@ -16935,7 +17032,7 @@ function ensureNeedsPane(){
 
 
 
-/* ===== 1.76.10 send-back ===== */
+/* ===== 1.76.13 send-back ===== */
 (function(){
   function home(){ try{ surfaceHome(); }catch(e){ try{ if(window.show) show('sc-home'); }catch(x){} } }
   function bindBacks(){
@@ -17099,7 +17196,7 @@ function ensureNeedsPane(){
     hd.innerHTML='<p style="color:#c4a35a;font-size:.78rem">Doors · not a changelog</p>'+
       '<div class="v176-help-door"><b>How we walk</b><span>Check is personal. Deliver is proof in. Confirm is human. Grok never seals.</span></div>'+
       '<div class="v176-help-door"><b>This phone</b><span>Seat bind. Back is Home. Inbox is people. Plan is the seat bot.</span></div>'+
-      '<div class="v176-help-door"><b>Fix log</b><span>Last door · stamped 1.76.10 — not 1.70.23 on the face.</span></div>';
+      '<div class="v176-help-door"><b>Fix log</b><span>Last door · stamped 1.76.13 — not 1.70.23 on the face.</span></div>';
   }
 
   /* Email + seat first bind enhancement */
@@ -17204,7 +17301,7 @@ function ensureNeedsPane(){
   }, true);
 
   bindBacks();
-  console.log('L_OS v1.76.10 · send-back faces + metal');
+  console.log('L_OS v1.76.13 · send-back faces + metal');
 })();
 
 
@@ -17245,10 +17342,10 @@ function ensureNeedsPane(){
   }
   window.v176CosSeed = v176CosSeed;
 
-  /* seed prompt killed 1.76.10 — sheet only */
+  /* seed prompt killed 1.76.13 — sheet only */
 
 
-/* ===== 1.76.10 mail + history ===== */
+/* ===== 1.76.13 mail + history ===== */
 (function(){
   function seatKey(){
     try{ return (typeof getSeatBind==='function' && getSeatBind()) || (state&&state.role) || 'Park'; }catch(e){ return 'Park'; }
@@ -17438,7 +17535,7 @@ function ensureNeedsPane(){
 
   /* N4: thread already keyed by seat via chatStoreKey / los_house_chat_{seat} */
   try{ v176PaintMailBadge(); }catch(e){}
-  console.log('L_OS v1.76.10 · Human/Mail · unread badge · seed sheet · seat thread');
+  console.log('L_OS v1.76.13 · Human/Mail · unread badge · seed sheet · seat thread');
 })();
 
 
@@ -17508,6 +17605,212 @@ function ensureNeedsPane(){
     $('v176ImpFile').onchange=function(){ var f=this.files&&this.files[0]; this.value=''; if(f) v176ImportSeatThread(f); };
   }
   document.addEventListener('click', function(){ try{ v176EnsureThreadMove(); }catch(e){} }, true);
+
+
+(function(){
+  function vaVotesChrome(){
+    var sh=$('mwfSheet'); if(!sh) return;
+    sh.classList.add('v176-va');
+    /* kill every twin / stacked header — one title, one ← Home, one Cast */
+    sh.querySelectorAll('.v176-va-top, .mwf-top-messy').forEach(function(n){ try{ n.remove(); }catch(e){} });
+    var backs=sh.querySelectorAll('.v176-back');
+    if(backs.length>1){
+      for(var i=1;i<backs.length;i++){ try{ backs[i].remove(); }catch(e){} }
+    }
+    if(!sh.querySelector('.v176-back')){
+      var p=sh.querySelector('.mwf-panel');
+      if(p){
+        var hb=document.createElement('button');
+        hb.type='button'; hb.textContent='← Home'; hb.className='v176-back';
+        hb.style.cssText='position:absolute;left:.6rem;top:.55rem;color:#c4a35a;background:0;border:0;font-weight:800;z-index:2';
+        hb.onclick=function(){ try{ if(typeof closeMwf==='function') closeMwf(); }catch(e){} try{ surfaceHome(); }catch(e){} };
+        p.insertBefore(hb, p.firstChild);
+      }
+    }
+    var h2=sh.querySelector('#mwfWhoView h2, .mwf-panel h2');
+    if(h2 && h2.textContent.indexOf('Votes')>=0 && h2.textContent.indexOf('Culture')<0){
+      /* do not invent a second title */
+    }
+  }
+  document.addEventListener('click', function(ev){
+    var t=ev.target && ev.target.closest && (ev.target.closest('[data-door="culture"]')||ev.target.closest('[data-del-door="votes"]'));
+    if(t) setTimeout(vaVotesChrome, 50);
+  });
+  setTimeout(vaVotesChrome, 400);
+  var _om2 = window.openMwf;
+  if(typeof _om2==='function'){
+    window.openMwf=function(){
+      _om2.apply(this, arguments);
+      setTimeout(vaVotesChrome, 40);
+    };
+  }
+
+  /* FAB tray: Home + Back on the expanding pill, collapse on Home */
+  var stack=$('fabStack');
+  if(stack && !$('fabTray')){
+    var tray=document.createElement('div'); tray.id='fabTray';
+    tray.innerHTML='<div class="fab-nav"><button type="button" class="fab" id="fabHome">Home</button><button type="button" class="fab" id="fabBack">Back</button></div>';
+    var tools=$('fabTools');
+    if(tools) stack.insertBefore(tray, tools);
+    else stack.insertBefore(tray, stack.firstChild);
+    if($('fabHome')) $('fabHome').onclick=function(){ try{ surfaceHome(); }catch(e){} stack.classList.remove('open'); };
+    if($('fabBack')) $('fabBack').onclick=function(){ try{ history.back(); }catch(e){} stack.classList.remove('open'); };
+  }
+  try{ if(typeof collapseFab==='function') collapseFab(); }catch(e){}
+})();
+
+
+(function(){
+  /* Phase 0 invariants */
+  window.LOS_INVARIANTS = {
+    parkNoSwitch: true,
+    ceoInspectNoSend: true,
+    botNeverDone: true,
+    charityId: function(seat){
+      var n=new Date();
+      var ym=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0');
+      return 'todo-charity-'+ym+'-'+(seat||'Park');
+    },
+    confirmOnlyWriter: true
+  };
+  var _setDone = null;
+  try{
+    /* wrap any todo complete that a bot might call */
+  }catch(e){}
+
+  function ensureFabTray(){
+    var stack=$('fabStack'); if(!stack) return;
+    if($('fabTray')) return;
+    var tray=document.createElement('div'); tray.id='fabTray';
+    tray.innerHTML='<div id="fabSplit"><button type="button" id="fabHome">Home</button><button type="button" id="fabBack">Back</button></div>';
+    var tools=$('fabTools');
+    if(tools) stack.insertBefore(tray, tools);
+    else stack.insertBefore(tray, stack.firstChild);
+    if($('fabHome')) $('fabHome').onclick=function(){ try{ surfaceHome(); }catch(e){} stack.classList.remove('open','show-tools'); try{ collapseFab(); }catch(e){} };
+    if($('fabBack')) $('fabBack').onclick=function(){ try{ history.back(); }catch(e){} stack.classList.remove('open','show-tools'); };
+    var help=$('fabHelp');
+    if(!help && tools){
+      help=document.createElement('button');
+      help.type='button'; help.className='fab'; help.id='fabHelp'; help.textContent='HELP';
+      tools.appendChild(help);
+      help.onclick=function(){ try{ if(window.openDoor) openDoor('help'); else if(window.show) show('sc-help'); }catch(e){} };
+    }
+    ['fabFb','fabChat','fabThank','fabHelp'].forEach(function(id){
+      var el=$(id); if(el) el.classList.remove('hidden');
+    });
+  }
+  function wireAddTodoVisible(){
+    var add=$('v172TodoAdd');
+    if(!add || add._v17612) return;
+    add._v17612=1;
+    var prev=add.onclick;
+    add.onclick=function(ev){
+      if(prev) prev.call(this, ev);
+      try{
+        mountRealTodoEngine();
+        var form=$('homeTodoForm');
+        if(form){
+          form.classList.remove('hidden');
+          form.style.setProperty('display','block','important');
+          form.scrollIntoView({block:'nearest'});
+        }
+        var show=$('homeTodoShowForm'); if(show) show.style.setProperty('display','none','important');
+      }catch(e){}
+    };
+  }
+  document.addEventListener('click', function(){
+    try{ ensureFabTray(); wireAddTodoVisible(); }catch(e){}
+  }, true);
+  setTimeout(function(){ try{ ensureFabTray(); wireAddTodoVisible(); }catch(e){} }, 200);
+
+  /* Park cannot switch */
+  var _ps = window.paintCeoSwitcher;
+  if(typeof _ps==='function'){
+    window.paintCeoSwitcher=function(){
+      var bind='';
+      try{ bind=getSeatBind(); }catch(e){}
+      if(bind && bind!=='CEO' && bind!=='EA'){
+        var sw=$('v176CeoSwitch'); if(sw) sw.remove();
+        return;
+      }
+      return _ps.apply(this, arguments);
+    };
+  }
+})();
+
+
+(function(){
+  function bigHome(){
+    var b=$('v176DelHome');
+    if(b && !b._w){ b._w=1; b.onclick=function(){ try{ surfaceHome(); }catch(e){} }; }
+    var seed=$('v176InboxSeed');
+    if(seed && !seed._w){
+      seed._w=1;
+      seed.onclick=function(){
+        try{
+          if(typeof ensureSeedSheet==='function'){
+            var pane=$('v172ChatPane')||$('sc-inbox');
+            if(!$('v176SeedSheet') && pane){
+              ensureSeedSheet();
+            }
+          }
+          var sh=$('v176SeedSheet');
+          if(sh){ sh.classList.add('on'); sh.style.display='block'; }
+          else toast('Seed sheet · paste mail · Confirm writes');
+        }catch(e){ toast('Seed mail'); }
+      };
+    }
+  }
+  var _showDel = window.showDelDoor;
+  if(typeof _showDel==='function'){
+    window.showDelDoor=function(which){
+      if(which==='eod'){ try{ if(window.show) show('sc-eod'); }catch(e){} return; }
+      if(which==='votes' || which==='culture'){ try{ if(window.openMwf) openMwf(); else if(window.show) show('sc-culture'); }catch(e){} return; }
+      return _showDel.apply(this, arguments);
+    };
+  }
+  document.addEventListener('click', function(ev){
+    var t=ev.target && ev.target.closest && ev.target.closest('[data-del-door]');
+    if(t){
+      var w=t.getAttribute('data-del-door');
+      if(w==='eod'||w==='votes'){ ev.preventDefault(); ev.stopPropagation(); window.showDelDoor(w); }
+    }
+    bigHome();
+  }, true);
+  setTimeout(bigHome, 300);
+
+  /* FAB always: Show toggles tray — Home|Back + Zoom + Feedback + Chat + Thank + HELP */
+  function v176WireShowFab(){
+    var hide=$('fabHide'); if(!hide) return;
+    hide._v14=1;
+    hide.onclick=function(ev){
+      if(ev){ ev.preventDefault(); ev.stopPropagation(); }
+      var st=$('fabStack'); if(!st) return;
+      var isShow=(hide.textContent||'').indexOf('Show')>=0;
+      if(isShow){
+        st.classList.add('open','show-tools');
+        hide.textContent='Hide';
+        st.querySelectorAll('.fab').forEach(function(f){
+          if(f.id==='fabHide') return;
+          f.style.removeProperty('display');
+          f.classList.remove('hidden');
+          f.style.setProperty('display','flex','important');
+        });
+        var tray=$('fabTray'); if(tray) tray.style.setProperty('display','flex','important');
+      } else {
+        try{ if(typeof collapseFab==='function') collapseFab(); }catch(e){}
+        st.classList.remove('open','show-tools');
+        hide.textContent='Show';
+      }
+    };
+    if((hide.textContent||'').indexOf('HELP')>=0 || (hide.textContent||'').indexOf('More')>=0){
+      hide.textContent='Show';
+    }
+  }
+  v176WireShowFab();
+  setTimeout(v176WireShowFab, 300);
+  setTimeout(v176WireShowFab, 800);
+})();
 
 </script>
 </html>
